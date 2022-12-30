@@ -1,0 +1,416 @@
+.board{
+    text-align: center;
+    background: #DCDCDC;
+   min-height: 80vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://images.unsplash.com/photo-1614668799881-af5581297f42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.infoBar{
+    background: gold;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.5%;
+    min-height: 7%;
+    font-size: 2.5vh;
+    width: 80%;
+
+}
+.infoBarLine{
+    display: flex;
+   align-items: center;
+    flex-wrap: wrap;
+
+
+}
+.icon img{
+  height: 6vh;
+    width: auto;
+}
+
+.city{
+    min-width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+.background{
+    position: relative;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    background: #DCDCDC;
+
+}
+.background img{
+  width: 80%;
+    height: auto;
+
+}
+
+.city a img:hover{
+    border: solid 1px white;
+
+}
+.city a ul{
+    position: absolute;
+    top: 30%;
+    left: 1%;
+    display: none;
+    list-style: none;
+
+}
+
+.city a img:hover +ul{
+    display: block;
+
+}
+
+ .city a img{
+     height: 18vh;
+     width: 7vw;
+
+ }
+
+
+.pos1{
+
+position: absolute;
+    left: 44%;
+    top:24%;
+}
+.pos2{
+    position: absolute;
+    left: 51%;
+    top:17%;
+}
+.pos3{
+    position: absolute;
+    left: 55%;
+    top:25%;
+}
+.pos4{
+    position: absolute;
+    left: 60%;
+    top:34%;
+}
+.pos5{
+    position: absolute;
+    left: 37%;
+    top:30%;
+}
+.pos6{
+    position: absolute;
+    left: 43%;
+    top:39%;
+}
+.pos7{
+    position: absolute;
+    left: 47%;
+    top:49%;
+}
+
+
+
+.pos8null{
+    position: absolute;
+    left:54%;
+    top:57%;
+}
+.pos8{
+    position: absolute;
+    left: 26%;
+    top: 6%;
+    height: 66vh ;
+    width: 39vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pos8 img{
+    height: 66vh ;
+    width: 66vw;
+}
+.pos8 a{
+    position: absolute;
+    left: 60%;
+    top: 60%;
+}
+
+
+.build{
+    font-size: 2vh;
+    height: auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: gold;
+    margin: 1vh 0;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.build img{
+    height: 30vh;
+    width: auto;
+
+}
+.level img{
+    width: 40vw;
+    height: auto;
+}
+.building{
+    display: flex;
+    flex-direction: column;
+}
+
+.building a{
+   display: flex;
+    align-items: center;
+    font-size: 130%;
+}
+.buildBack a:hover{
+    opacity: 0.5;
+}
+.buildInfo{
+    display: flex;
+    flex-direction: column;
+}
+.buildInfo div{
+    margin-bottom: 10%;
+}
+.buildInfo1{
+    margin: 2% 0;
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.buildTitle{
+    display: flex;
+    flex:2;
+    justify-content: center;
+    align-items: center;
+    font-size: 350%;
+}
+.buildBack{
+    display: flex;
+    flex: 2;
+}
+.buildBack a{
+    background: white;
+    margin:0 2%;
+    border:solid black 1px;
+}
+
+.buildBack div{
+    flex: 1;
+}
+.building{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 120%;
+}
+.building div{
+    display: flex;
+    justify-content: center;
+}
+.building img{
+    height: 6vh;
+    width: auto;
+}
+.back a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+}
+a div{
+    color: black;
+}
+
+
+.back img{
+    height: 6vh;
+    width: 3vw;
+}
+.buildInfo2{
+    margin: 2% 0;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.buildInfo2 > div{
+
+    width: 32%;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+.work{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.work input{
+    text-align: center;
+    height: 2vh;
+    width: 4vw;
+    background: gold;
+    font-size: 70%;
+}
+.work div{
+    width: 100%;
+    display: flex;
+
+}
+.workLine{
+    text-align: center;
+    display: flex;
+    width: 100%;
+    margin: 2% 0;
+}
+#workLineTitle{
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
+.workLine div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.workLine button[type="submit"]{
+    font-size: 120%;
+    height: 80%;
+    width: 80%;
+    background: white;
+    padding: 0 1vw;
+    margin: 2% 0;
+    font-family: 'Acme', sans-serif;
+
+}
+.mainInfo{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.iconWork img{
+    height: 5vh;
+    width: auto;
+}
+
+.iconWorkInfo img{
+    height: 4vh;
+    width: auto;
+
+}
+.infoLine{
+    display: flex;
+    justify-content: flex-start;
+    margin: 10% 0;
+    margin-left: 10%;
+}
+.scientistIcon{
+    display: flex;
+    flex-direction: column;
+}
+.addBuild{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+}
+.addBuild img{
+    height: 100%;
+    width: auto;
+
+}
+.addBuildLine{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: gold;
+    margin-top: 1%;
+}
+.addBuildLine div{
+    flex: 1;
+}
+
+
+.addBuild button[type="submit"] {
+    font-size: 120%;
+    height: 80%;
+    background: white;
+    padding: 0 1vw;
+    font-family: 'Acme', sans-serif;
+}
+.newBuildBack a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: black;
+    background: white;
+    border:solid black 1px;
+    margin: 10% 10%;
+
+}
+.newBuildBack a:hover{
+    opacity: 0.5;
+}
+.newBuildTitle{
+    display: flex;
+    width: 80%;
+
+
+}
+.newBuildBack a img{
+    height: 5vh;
+    width: auto;
+}
+
+.buildEnd{
+    display: flex;
+    background: gold;
+    width: 100%;
+    justify-content: center;
+    font-size: 120%;
+}
+.buildEnd a{
+    background: white;
+    margin:0 2%;
+    border:solid black 1px;
+}
+.buildEnd a:hover{
+    opacity: 0.5;
+}
+.buildEnd a img{
+    height:7vh ;
+    width:auto ;
+}
+
+.buildEndInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+

@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateArmyForcesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('army_forces', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('amount');
+
+            $table->integer('idArmy')->unsigned()->nullable();
+            $table->integer('idSoldier')->unsigned();
+            $table->foreign('idArmy')->references('id')->on('armies');
+            $table->foreign('idSoldier')->references('id')->on('soldiers');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('army_forces');
+    }
+}
