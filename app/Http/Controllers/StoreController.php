@@ -94,7 +94,7 @@ class StoreController extends Controller
                         'food' => $city->food,
                         'level' => $store->level,
                         'name' => 'Magazyn',
-                        'link' => 'https://cdn.imageupload.workers.dev/OLuYK2Ru_magazyn-wyciety.png',
+                        'link' => 'https://cdn.imageupload.workers.dev/LGTJOgIp_magazyn-wyciety.png',
                         'buildEnd'=>$store->buildEnd-time(),
                     ]);
                 } else dd("brak budynku");

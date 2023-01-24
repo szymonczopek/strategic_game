@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Magazyn - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/OLuYK2Ru_magazyn-wyciety.png">
+                <img src="https://cdn.imageupload.workers.dev/LGTJOgIp_magazyn-wyciety.png">
                 <div class="buildBack">
                     <div class="building">
                         <div>

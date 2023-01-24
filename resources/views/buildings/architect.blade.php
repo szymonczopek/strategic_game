@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Architekt - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/T4VVZknd_architekt-wyciety.png">
+                <img src="https://cdn.imageupload.workers.dev/679UkLQV_architekt-wyciety.png">
                 <div class="buildBack">
                     <div class="building">
                         <div>

@@ -122,7 +122,7 @@ class StableController extends Controller
                         'food' => $city->food,
                         'level' => $stable->level,
                         'name' => 'Stajnia',
-                        'link' => 'https://cdn.imageupload.workers.dev/n3fNlnYs_stajnia-wyciete.png',
+                        'link' => 'https://cdn.imageupload.workers.dev/De6JKTE0_stajnia-wyciete.png',
                         'buildEnd'=>$stable->buildEnd-time(),
                     ]);
                 }else dd("brak budynku");

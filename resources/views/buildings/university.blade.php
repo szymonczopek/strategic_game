@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Akademia - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/NLODs3Cr_akademia-wyciety.png">
+                <img src="https://cdn.imageupload.workers.dev/RXpopXSO_akademia-wyciety.png">
                 <div class="buildBack">
                     <div class="building">
                         <div>

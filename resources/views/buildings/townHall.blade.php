@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Ratusz - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/KPzEFRwr_ratusz_wyciety.png">
+                <img src="https://cdn.imageupload.workers.dev/eFVt7dB5_ratusz_wyciety.png">
                 <div class="buildBack">
                     <div class="building">
                         <div>

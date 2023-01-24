@@ -111,7 +111,7 @@ class BonusBuildingController extends Controller
                'food' => $city->food,
                'level' => $bonusBuilding->level,
                'name' => 'Drwal',
-               'link' => 'https://cdn.imageupload.workers.dev/rZxt18DW_drwal-wyciety.png',
+               'link' => 'https://cdn.imageupload.workers.dev/o0TKBgkU_drwal-wyciety.png',
                'buildEnd'=>$bonusBuilding->buildEnd-time(),
            ]);
                 } else dd("brak budynku");
@@ -203,7 +203,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Kamieniarz',
-                'link' => 'https://cdn.imageupload.workers.dev/9R9QV8Jt_kamieniarz-wyciety.png',
+                'link' => 'https://cdn.imageupload.workers.dev/SRcZmXTD_kamieniarz-wyciety.png',
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
@@ -378,7 +378,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Inżynier',
-                'link' => 'https://cdn.imageupload.workers.dev/QqW21kGL_inzynier-wyciety.png',
+                'link' => 'https://cdn.imageupload.workers.dev/YAa15agg_inzynier-wyciety.png',
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
@@ -462,7 +462,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Architekt',
-                'link' => 'https://cdn.imageupload.workers.dev/T4VVZknd_architekt-wyciety.png',
+                'link' => 'https://cdn.imageupload.workers.dev/679UkLQV_architekt-wyciety.png',
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");

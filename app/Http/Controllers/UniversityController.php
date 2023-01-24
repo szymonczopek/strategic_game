@@ -109,7 +109,7 @@ class UniversityController extends Controller
                         'food' => $city->food,
                         'level' => $university->level,
                         'name' => 'Akademia',
-                        'link' => 'https://cdn.imageupload.workers.dev/NLODs3Cr_akademia-wyciety.png',
+                        'link' => 'https://cdn.imageupload.workers.dev/zQYXD47F_akademia-wyciety.png',
                         'buildEnd'=>$university->buildEnd-time(),
                     ]);
                 } else dd("brak akademi");

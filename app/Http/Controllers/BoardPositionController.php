@@ -32,7 +32,7 @@ class BoardPositionController extends Controller
 
             $builds = [
                 '1' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/OLuYK2Ru_magazyn-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/LGTJOgIp_magazyn-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newStore/',
                     'name'=>'Magazyn',
@@ -42,7 +42,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                 ],
                 '2' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/n3fNlnYs_stajnia-wyciete.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/De6JKTE0_stajnia-wyciete.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newStable/',
                     'name'=>'Stajnia',
@@ -53,7 +53,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '3' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/NLODs3Cr_akademia-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/RXpopXSO_akademia-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newUniversity/',
                     'name'=>'Akademia',
@@ -78,7 +78,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '5' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/rZxt18DW_drwal-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/o0TKBgkU_drwal-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newWoodcutter/',
                     'name'=>'Drwal',
@@ -89,7 +89,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '6' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/9R9QV8Jt_kamieniarz-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/SRcZmXTD_kamieniarz-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newStonemason/',
                     'name'=>'Kamieniarz',
@@ -100,7 +100,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '7' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/4B09lXwY_mlyn-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/6cVEMHTK_mlyn-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newMill/',
                     'name'=>'Młyn',
@@ -111,7 +111,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '8' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/QqW21kGL_inzynier-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/YAa15agg_inzynier-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newEngineer/',
                     'name'=>'Inżynier',
@@ -121,7 +121,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '9' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/T4VVZknd_architekt-wyciety.png',
+                    'link' => 'https://cdn.imageupload.workers.dev/679UkLQV_architekt-wyciety.png',
                     'ownedTechnology' => 'true',
                     'route'=>'/newArchitect/',
                     'name'=>'Architekt',
