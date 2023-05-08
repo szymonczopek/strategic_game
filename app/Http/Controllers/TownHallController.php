@@ -35,7 +35,7 @@ class TownHallController extends Controller
         $horses = NULL;
         $horsesMax=NULL;
 
-        //sprwdzenie czy isnieje wstajnia
+        //sprwdzenie czy isnieje stajnia
         foreach ($loadPositions as $loadPosition){
             if($loadPosition->idStable !== NULL)
             {
@@ -112,7 +112,7 @@ class TownHallController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function changeWorkersAmount(Request $request)
     {
         $city = City::where('idUser', Auth::id())->first();
         $loadPositions = BoardPosition::where('idCity', $city->id)->get();

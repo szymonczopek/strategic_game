@@ -64,7 +64,7 @@ class BonusBuildingController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
     public function woodcutter()
@@ -154,7 +154,7 @@ class BonusBuildingController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
 
@@ -246,7 +246,7 @@ class BonusBuildingController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
     public function mill()
@@ -330,7 +330,7 @@ class BonusBuildingController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
     public function engineer()
@@ -414,7 +414,7 @@ class BonusBuildingController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
     public function architect()

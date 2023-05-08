@@ -19,16 +19,16 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('start')->middleware('auth');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'checkCity'])->name('home.checkCity')->middleware('auth');
 
 Route::get('/changePassword', [App\Http\Controllers\HomeController::class, 'create'])->name('createPasswordForm')->middleware('auth');
 Route::post('/changedPassword', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword')->middleware('auth');
 
-Route::post('/createdCity', [App\Http\Controllers\CityController::class, 'store'])->name('cities.store')->middleware('auth');
-Route::get('/board', [App\Http\Controllers\CityController::class, 'create'])->name('cities.create')->middleware('auth');
+Route::post('/createCity', [App\Http\Controllers\CityController::class, 'createCity'])->name('cities.createCity')->middleware('auth');
+Route::get('/board', [App\Http\Controllers\CityController::class, 'displayBoard'])->name('cities.displayBoard')->middleware('auth');
 
 Route::get('/RATUSZ', [App\Http\Controllers\TownHallController::class, 'create'])->name('townhall.create')->middleware('auth');
-Route::post('/updatePopulationRATUSZ', [App\Http\Controllers\TownHallController::class, 'store'])->name('townhall.store')->middleware('auth');
+Route::post('/changeWorkersAmount', [App\Http\Controllers\TownHallController::class, 'changeWorkersAmount'])->name('townhall.changeWorkersAmount')->middleware('auth');
 
 Route::get('/AKADEMIA', [App\Http\Controllers\UniversityController::class, 'create'])->name('university.create')->middleware('auth');
 Route::post('/updateScientistsAKADEMIA', [App\Http\Controllers\UniversityController::class, 'store'])->name('university.store')->middleware('auth');

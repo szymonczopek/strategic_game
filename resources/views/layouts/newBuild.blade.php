@@ -10,35 +10,35 @@
             <div class="infoBarLine"><div class="icon"><img src="https://cdn-icons-png.flaticon.com/512/3814/3814554.png"></div> Żywność: {{$food}}</div>
 
         </div>
-<div class="city">
-    <div class="background">
-        <div class="addBuild">
-            <div class="newBuildTitle">
-                <div class="addBuildLine"><div>Nazwa</div><div><img src=""></div><div>Opis</div><div>Wymagania:</div></div>
-                <div class="newBuildBack">
-                    <a href="/">
-                        <div>Powrót do miasta</div>
-                        <img src="https://cdn4.iconfinder.com/data/icons/navigation-40/24/back-256.png">
-                    </a>
+    <div class="city">
+        <div class="background">
+            <div class="addBuild">
+                <div class="newBuildTitle">
+                    <div class="addBuildLine"><div>Nazwa</div><div><img src=""></div><div>Opis</div><div>Wymagania:</div></div>
+                    <div class="newBuildBack">
+                        <a href="/">
+                            <div>Powrót do miasta</div>
+                            <img src="https://cdn4.iconfinder.com/data/icons/navigation-40/24/back-256.png">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        @for($i=1;$i<=9;$i++)
-                @if(isset($builds[$i]['name']))
-                    <div class="addBuildLine"><div>{{$builds[$i]['name']}}</div><div><img src="{{$builds[$i]['link']}}"></div><div>{{$builds[$i]['description']}}</div><div><div>Drewno:{{$builds[$i]['wood']}}</div><div>Kamien:{{$builds[$i]['stone']}}</div></div><div> <form method="POST" action="{{$builds[$i]['route']}}{{$builds[$i]['pos']}}">@csrf<button type="submit">Wybuduj</button></form></div></div>
-                @endif
-                @endfor
+            @for($i=1;$i<=9;$i++)
+                    @if(isset($builds[$i]['name']))
+                        <div class="addBuildLine"><div>{{$builds[$i]['name']}}</div><div><img src="{{$builds[$i]['link']}}"></div><div>{{$builds[$i]['description']}}</div><div><div>Drewno:{{$builds[$i]['wood']}}</div><div>Kamien:{{$builds[$i]['stone']}}</div></div><div> <form method="POST" action="{{$builds[$i]['route']}}{{$builds[$i]['pos']}}">@csrf<button type="submit">Wybuduj</button></form></div></div>
+                    @endif
+                    @endfor
 
 
-       </div>
+           </div>
 
-    {{-- @for($i=1;$i<=9;$i++)
-         @if(isset($builds[$i]['name']))
-           {{$builds[$i]['name']}} </br>
-       @endif
-       @endfor--}}
+        {{-- @for($i=1;$i<=9;$i++)
+             @if(isset($builds[$i]['name']))
+               {{$builds[$i]['name']}} </br>
+           @endif
+           @endfor--}}
 
+        </div>
     </div>
-</div>
 
 
 

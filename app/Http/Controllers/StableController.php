@@ -10,24 +10,15 @@ use Illuminate\Support\Facades\Auth;
 
 class StableController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
-
     public function newStable($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
         if($city->wood >= 5000 && $city->stone >= 5000)
         {
             $stable=Stable::create([
-                'buildEnd'=>time()+1800,
-                'stableWorkTime'=>time()+1800
+                'buildEnd' => time()+1800,
+                'stableWorkTime' => time()+1800,
+                'horseAmount' => 1
             ]);
 
             BoardPosition::create([
@@ -51,7 +42,7 @@ class StableController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
 

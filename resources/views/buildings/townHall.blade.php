@@ -69,7 +69,7 @@
               </div>
                 <div class="work">
                     <h1>Praca w mieście</h1>
-                        <form method="POST" action="{{route('townhall.store')}}">
+                        <form method="POST" action="{{route('townhall.changeWorkersAmount')}}">
                             @csrf
                             <div class="workLine" id="workLineTitle"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/1083/1083298.png">Łączna populacja do pracy:</div> <div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/900/900783.png"></div><div>Ludzie:{{$population}}</div></div><div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn-icons.flaticon.com/png/512/4989/premium/4989187.png?token=exp=1640872289~hmac=c654d4f2b896f390b3f1097c7ef283fc"></div><div>Konie:@if($horses===NULL)0 @else{{$horses}}@endif&nbsp x2</div></div></div>
                             <div class="workLine"><div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/482/482506.png"></div><div>Populacja wolna:&nbsp {{$populationFree}}</div><div>{{$populationFree}}&nbspx</div><div>+10&nbspmonet/h</div></div>

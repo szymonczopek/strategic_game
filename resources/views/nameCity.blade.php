@@ -8,7 +8,7 @@
         <h1>{{ __('Nazwij swoje miasto') }}</h1>
 
 
-                    <form method="POST" action="{{route('cities.store')}}">
+                    <form method="POST" action="{{route('cities.createCity')}}">
                         @csrf
                         <input id="cityName" type="text"  name="cityName" value="{{ old('cityName') }}" autofocus>
                         @error('cityName')
