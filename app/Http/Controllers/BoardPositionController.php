@@ -121,7 +121,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '9' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/679UkLQV_architekt-wyciety.png',
+                    'link' => config('globalVariables.architectLink'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newArchitect/',
                     'name'=>'Architekt',

@@ -4,7 +4,6 @@ namespace App\Http\Traits;
 
 use App\Models\BoardPosition;
 use App\Models\City;
-use App\Models\Setting;
 use App\Models\townHall;
 use Illuminate\Support\Facades\AutownHall;
 
@@ -12,7 +11,15 @@ trait GlobalTrait {
 
     public function getCity($user)
     {
-        $city = City::where('idUser', $user)->first();
+        try {
+            $city = City::where('idUser', $user)->first();
+            if (!$city) {
+                throw new Exception("Nie znaleziono miasta dla tego uzytkownika");
+            }
+        } catch (Exception $e) {
+            $errorMessage = 'Błąd przy pobieraniu modelu: ' . $e->getMessage();
+            return $errorMessage;
+        }
         return $city;
     }
     public function getCityPositions($city){
