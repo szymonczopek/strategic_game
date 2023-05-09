@@ -12,21 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TownHallController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -106,12 +92,6 @@ class TownHallController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function changeWorkersAmount(Request $request)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -158,49 +138,4 @@ class TownHallController extends Controller
         }
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\townHall  $townHall
-     * @return \Illuminate\Http\Response
-     */
-    public function show(townHall $townHall)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\townHall  $townHall
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(townHall $townHall)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\townHall  $townHall
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, townHall $townHall)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\townHall  $townHall
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(townHall $townHall)
-    {
-        //
-    }
 }

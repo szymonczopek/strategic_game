@@ -14,16 +14,19 @@ use App\Models\townHall;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Traits\GlobalTrait;
 
 class CityController extends Controller
 {
+    use GlobalTrait;
+
     public function displayBoard()
     {
+        $backgroundPicture = config('globalVariables.backgroundLink');
 
-        $city = City::where('idUser', Auth::id())->first();
+        $city = $this->getCity();
 
-        $loadPositions=BoardPosition::where('idCity',$city->id)->get();
+        $loadPositions = $this->getCityPosition($city);
 
         for($i=1;$i<=8;$i++){
             $posLink[$i]=NULL;
@@ -147,7 +150,8 @@ class CityController extends Controller
                 'wood' => $city->wood,
                 'stone' => $city->stone,
                 'food' => $city->food,
-                'sends'=>[
+                'background' => $backgroundPicture,
+                'buildings'=>[
                     1=>['link'=>$posLink[1],
                         'name'=>$posName[1]],
                     2=>['link'=>$posLink[2],
