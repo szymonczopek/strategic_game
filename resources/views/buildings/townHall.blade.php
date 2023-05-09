@@ -62,7 +62,7 @@
                 <div class="mainInfo">
                  <h1> Dane miasta</h1>
                     <div>
-                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/900/900783.png"></div> Populacja miasta:&nbsp{{$population}} / {{$populationMax}}</div>
+                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/900/900783.png"></div> Populacja miasta:@if($horses > 0) &nbsp{{$population+ 2*$horses}} ({{$horses}} koni) / {{$populationMax}} @else&nbsp{{$population}} / {{$populationMax}}</div>@endif
                         <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/3500/3500797.png"></div>  Współczynnik wzrostu populacji:&nbsp @if($populationRatio>0) +{{$populationRatio}}@else{{$populationRatio}}@endif/s</div>
 
                     </div>

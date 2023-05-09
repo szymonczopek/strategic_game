@@ -5,17 +5,56 @@ namespace App\Http\Traits;
 use App\Models\BoardPosition;
 use App\Models\City;
 use App\Models\Setting;
-use Illuminate\Support\Facades\Auth;
+use App\Models\townHall;
+use Illuminate\Support\Facades\AutownHall;
 
 trait GlobalTrait {
 
-    public function getCity()
+    public function getCity($user)
     {
-        $city = City::where('idUser', Auth::id())->first();
+        $city = City::where('idUser', $user)->first();
         return $city;
     }
-    public function getCityPosition($city){
+    public function getCityPositions($city){
         $loadPositions = BoardPosition::where('idCity',$city->id)->get();
         return $loadPositions;
     }
+    public function resourcesUpdate($idTownHall, $city){
+            $townHall = TownHall::where('id', $idTownHall)->first();
+            //czas wolnych
+            $time=time()-$townHall->freeWorkTime;
+            $before=$city->gold;
+            $city->update(['gold' =>$city->gold + (int)(1/360*$time*$townHall->populationFree)]);
+            $after=$city->gold;
+
+            if($after>$before) $townHall->update(['freeWorkTime'=>time()]);
+
+            //czas drewna
+            $time=time()-$townHall->woodWorkTime;
+            $before=$city->wood;
+            $city->update(['wood' => (int)($city->wood + 1/360*$time*$townHall->populationForest*$townHall->forestRatio)]);
+            $after=$city->wood;
+
+            if($after>$before) $townHall->update(['woodWorkTime'=>time()]);
+
+            //czas kamien
+            $time=time()-$townHall->stoneWorkTime;
+            $before=$city->stone;
+            $city->update(['stone' => (int)($city->stone + 1/360*$time*$townHall->populationStonepit*$townHall->stonepitRatio)]);
+            $after=$city->stone;
+
+            if($after>$before) $townHall->update(['stoneWorkTime'=>time()]);
+
+            //czas jedzenie
+            $time=time()-$townHall->agroWorkTime;
+            $before=$city->food;
+            $city->update(['food' => (int)($city->food + 1/360*$time*$townHall->populationAgro*$townHall->agroRatio)]);
+            $after=$city->food;
+
+            if($after>$before) $townHall->update(['agroWorkTime'=>time()]);
+        }
+        public function endBuild($building){
+            if($building->buildEnd-time() <= 0) $building->update(['buildEnd'=>NULL]);
+        }
+
 }

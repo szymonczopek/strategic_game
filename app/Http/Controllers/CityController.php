@@ -24,9 +24,9 @@ class CityController extends Controller
     {
         $backgroundPicture = config('globalVariables.backgroundLink');
 
-        $city = $this->getCity();
+        $city = $this->getCity(Auth::id());
 
-        $loadPositions = $this->getCityPosition($city);
+        $loadPositions = $this->getCityPositions($city);
 
         for($i=1;$i<=8;$i++){
             $posLink[$i]=NULL;
@@ -35,41 +35,8 @@ class CityController extends Controller
 
         foreach ($loadPositions as $loadPosition) {
 
-            if ($loadPosition->idTownHall !== NULL) {
-                $th = TownHall::where('id', $loadPosition->idTownHall)->first();
-
-
-                //czas wolnych
-                    $time=time()-$th->freeWorkTime;
-                    $before=$city->gold;
-                    $city->update(['gold' =>$city->gold + (int)(1/360*$time*$th->populationFree)]);
-                    $after=$city->gold;
-
-                    if($after>$before) $th->update(['freeWorkTime'=>time()]);
-
-                    //czas drewna
-                    $time=time()-$th->woodWorkTime;
-                    $before=$city->wood;
-                    $city->update(['wood' => (int)($city->wood + 1/360*$time*$th->populationForest*$th->forestRatio)]);
-                    $after=$city->wood;
-
-                    if($after>$before) $th->update(['woodWorkTime'=>time()]);
-
-                    //czas kamien
-                    $time=time()-$th->stoneWorkTime;
-                    $before=$city->stone;
-                    $city->update(['stone' => (int)($city->stone + 1/360*$time*$th->populationStonepit*$th->stonepitRatio)]);
-                    $after=$city->stone;
-
-                    if($after>$before) $th->update(['stoneWorkTime'=>time()]);
-
-                    //czas jedzenie
-                    $time=time()-$th->agroWorkTime;
-                    $before=$city->food;
-                    $city->update(['food' => (int)($city->food + 1/360*$time*$th->populationAgro*$th->agroRatio)]);
-                    $after=$city->food;
-
-                    if($after>$before) $th->update(['agroWorkTime'=>time()]);
+            if ($loadPosition -> idTownHall !== NULL) {
+                $this->resourcesUpdate($loadPosition -> idTownHall, $city);
             }
                     foreach ($loadPositions as $loadPosition) {
 

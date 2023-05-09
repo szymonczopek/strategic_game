@@ -7,9 +7,11 @@ use App\Models\City;
 use App\Models\Stable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\GlobalTrait;
 
 class StableController extends Controller
 {
+    use GlobalTrait;
     public function newStable($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -18,7 +20,7 @@ class StableController extends Controller
             $stable=Stable::create([
                 'buildEnd' => time()+1800,
                 'stableWorkTime' => time()+1800,
-                'horseAmount' => 1
+
             ]);
 
             BoardPosition::create([
@@ -62,7 +64,7 @@ class StableController extends Controller
                 $stable = Stable::where('id', $loadPosition->idStable)->first();
 
 //czas przyrostu koni
-                if($stable->horseAmount!==$stable->horseMax)
+                if($stable->buildEnd === NULL && $stable->horseAmount!==$stable->horseMax)
                 {
                     $stable->update(['horseRatio'=>round(((int)$city->food/(int)$stable->horseAmount/10),2)]);
                     $time = time() - $stable->stableWorkTime;
@@ -85,7 +87,12 @@ class StableController extends Controller
 
                 }
 
-                if(isset($stable->buildEnd) && $stable->buildEnd-time() <= 0) $stable->update(['buildEnd'=>NULL]);
+               // $this->endBuild($stable);
+                if(isset($stable->buildEnd) && $stable->buildEnd-time() <= 0) {
+                    $stable->update(['buildEnd' => NULL]);
+                    $stable->update(['stableWorkTime' => time()]);
+
+                }
 
 
                 if ($stable !== NULL) {

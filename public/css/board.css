@@ -325,6 +325,7 @@ a div{
 .infoLine{
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
     margin: 10% 0;
     margin-left: 10%;
 }
