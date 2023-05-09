@@ -117,7 +117,8 @@ class CityController extends Controller
                 'wood' => $city->wood,
                 'stone' => $city->stone,
                 'food' => $city->food,
-                'background' => $backgroundPicture,
+                'backgroundPicture' => $backgroundPicture,
+                'flagPicture' => config('globalVariables.flagLink'),
                 'buildings'=>[
                     1=>['link'=>$posLink[1],
                         'name'=>$posName[1]],

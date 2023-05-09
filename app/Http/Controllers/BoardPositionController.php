@@ -78,7 +78,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '5' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/o0TKBgkU_drwal-wyciety.png',
+                    'link' => config('globalVariables.woodcutterLink'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newWoodcutter/',
                     'name'=>'Drwal',
