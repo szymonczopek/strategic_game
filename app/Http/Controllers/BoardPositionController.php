@@ -32,7 +32,7 @@ class BoardPositionController extends Controller
 
             $builds = [
                 '1' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/LGTJOgIp_magazyn-wyciety.png',
+                    'link' => config('globalVariables.link.store'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newStore/',
                     'name'=>'Magazyn',
@@ -42,7 +42,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                 ],
                 '2' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/De6JKTE0_stajnia-wyciete.png',
+                    'link' => config('globalVariables.link.stable'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newStable/',
                     'name'=>'Stajnia',
@@ -53,7 +53,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '3' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/RXpopXSO_akademia-wyciety.png',
+                    'link' => config('globalVariables.link.university'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newUniversity/',
                     'name'=>'Akademia',
@@ -66,7 +66,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '4' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/qoOhiYyN_koszary-wyciete.png',
+                    'link' => config('globalVariables.link.army'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newArmy/',
                     'name'=>'Koszary',
@@ -78,7 +78,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '5' => [
-                    'link' => config('globalVariables.woodcutterLink'),
+                    'link' => config('globalVariables.link.woodcutter'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newWoodcutter/',
                     'name'=>'Drwal',
@@ -89,7 +89,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '6' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/SRcZmXTD_kamieniarz-wyciety.png',
+                    'link' => config('globalVariables.link.stonemason'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newStonemason/',
                     'name'=>'Kamieniarz',
@@ -100,7 +100,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '7' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/6cVEMHTK_mlyn-wyciety.png',
+                    'link' => config('globalVariables.link.mill'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newMill/',
                     'name'=>'Młyn',
@@ -111,7 +111,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '8' => [
-                    'link' => 'https://cdn.imageupload.workers.dev/YAa15agg_inzynier-wyciety.png',
+                    'link' => config('globalVariables.link.engineer'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newEngineer/',
                     'name'=>'Inżynier',
@@ -121,7 +121,7 @@ class BoardPositionController extends Controller
                     'pos'=>$slug,
                     ],
                 '9' => [
-                    'link' => config('globalVariables.architectLink'),
+                    'link' => config('globalVariables.link.architect'),
                     'ownedTechnology' => 'true',
                     'route'=>'/newArchitect/',
                     'name'=>'Architekt',

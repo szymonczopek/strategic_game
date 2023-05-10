@@ -111,7 +111,7 @@ class BonusBuildingController extends Controller
                'food' => $city->food,
                'level' => $bonusBuilding->level,
                'name' => 'Drwal',
-               'link' => 'https://cdn.imageupload.workers.dev/o0TKBgkU_drwal-wyciety.png',
+               'link' => config('globalVariables.link.woodcutter'),
                'buildEnd'=>$bonusBuilding->buildEnd-time(),
            ]);
                 } else dd("brak budynku");

@@ -6,18 +6,21 @@ use App\Models\City;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Request;
-
+use App\Http\Traits\GlobalTrait;
 
 class HomeController extends Controller
 {
+    use GlobalTrait;
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function checkCity()
+    public function checkCityExists()
     {
-        $city = City::where("idUser", Auth::id())->first();
+        $user = Auth::id();
+        $city = $this->getCity($user);
         if ($city !== null)
             return redirect('/board');
         else return view('nameCity');
@@ -25,10 +28,7 @@ class HomeController extends Controller
     }
     public function changePassword(Request $request)
     {
-        if(!(Hash::check($request->get('current_password'),Auth::user()->password))){
-            return back()->with('error','Your current password doesnt\' match with what you provided');
-        }
-        else dd("dziala");
+
     }
     public function create(){
         return view('changePassword');

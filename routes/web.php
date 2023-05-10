@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'checkCity'])->name('home.checkCity')->middleware('auth');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'checkCityExists'])->name('home.checkCityExists')->middleware('auth');
 
 Route::get('/changePassword', [App\Http\Controllers\HomeController::class, 'create'])->name('createPasswordForm')->middleware('auth');
 Route::post('/changedPassword', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword')->middleware('auth');

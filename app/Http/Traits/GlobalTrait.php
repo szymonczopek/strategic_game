@@ -14,7 +14,7 @@ trait GlobalTrait {
         try {
             $city = City::where('idUser', $user)->first();
             if (!$city) {
-                throw new Exception("Nie znaleziono miasta dla tego uzytkownika");
+                throw new Exception("Nie znaleziono miasta tego uzytkownika");
             }
         } catch (Exception $e) {
             $errorMessage = 'Błąd przy pobieraniu modelu: ' . $e->getMessage();
@@ -22,12 +22,30 @@ trait GlobalTrait {
         }
         return $city;
     }
-    public function getCityPositions($city){
-        $loadPositions = BoardPosition::where('idCity',$city->id)->get();
+    public function getCityPositions($city)
+        {
+            try {
+            $loadPositions = BoardPosition::where('idCity',$city->id)->get();
+                if (!$loadPositions) {
+                throw new Exception("Nie znaleziono pozycji planszy tego uzytkownika");
+                }
+            } catch (Exception $e) {
+                $errorMessage = 'Błąd przy pobieraniu modelu: ' . $e->getMessage();
+                return $errorMessage;
+        }
         return $loadPositions;
     }
-    public function resourcesUpdate($idTownHall, $city){
+    public function resourcesUpdate($idTownHall, $city)
+    {
+        try {
             $townHall = TownHall::where('id', $idTownHall)->first();
+            if (!$townHall) {
+                throw new Exception("Nie znaleziono ratusza tego uzytkownika");
+            }
+        } catch (Exception $e) {
+            $errorMessage = 'Błąd przy pobieraniu modelu: ' . $e->getMessage();
+            return $errorMessage;
+        }
             //czas wolnych
             $time=time()-$townHall->freeWorkTime;
             $before=$city->gold;
