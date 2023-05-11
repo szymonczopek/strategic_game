@@ -20,7 +20,8 @@ class HomeController extends Controller
     public function checkCityExists()
     {
         $user = Auth::id();
-        $city = $this->getCity($user);
+        $city = City::where('idUser', $user) -> first();
+
         if ($city !== null)
             return redirect('/board');
         else return view('nameCity');

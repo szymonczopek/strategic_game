@@ -14,7 +14,7 @@
 
 <div class="background"><img src="{{$backgroundPicture}}">
     @if(isset($buildings[8]['link']))
-        <div class="pos8"><img src="{{$buildings[8]['link']}}"><a href="{{$buildings[8]['name']}}"><img src="https://cdn.imageupload.workers.dev/GUkKYoRS_flaga_wycieta.png"><ul><li>{{$buildings[8]['name']}}</li></ul></a></div>
+        <div class="pos8"><img src="{{$buildings[8]['link']}}"><a href="{{$buildings[8]['name']}}"><img src="{{$flagPicture}}"><ul><li>{{$buildings[8]['name']}}</li></ul></a></div>
     @else <div class="pos8null" ><div><a href="newBuild/wall"><img src="{{$flagPicture}}"></a></div></div>
     @endif
     @for($i=1;$i<=7;$i++)

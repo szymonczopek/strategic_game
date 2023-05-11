@@ -19,11 +19,11 @@ class CreateCitiesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('cityName');
-            $table->integer('gold')->default(50);
-            $table->integer('wood')->default(50);
-            $table->integer('stone')->default(50);
-            $table->integer('food')->default(50);
-            $table->integer('technologyPoints')->default(0);
+            $table->integer('gold');
+            $table->integer('wood');
+            $table->integer('stone');
+            $table->integer('food');
+            $table->integer('technologyPoints');
 
             $table->integer('idUser')->unsigned();
             $table->foreign('idUser')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();

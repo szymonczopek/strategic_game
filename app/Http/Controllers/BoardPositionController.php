@@ -9,19 +9,11 @@ use App\Models\City;
 use App\Models\Wall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Traits\GlobalTrait;
 
 class BoardPositionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-
-    }
+    use GlobalTrait;
 
     public function newBuild($slug)
     {
@@ -47,7 +39,7 @@ class BoardPositionController extends Controller
                     'route'=>'/newStable/',
                     'name'=>'Stajnia',
                     'description'=>'Konie to dodatkowa pomoc w pracy populacji. Wydajność jednego zwierzęcia to dwukrotność wydajności człowieka w pracy. Każdy kolejny poziom stajni zwiększa maksymalną liczbe koni.
-           Współczynnik przyrostu liczby koni zależy od jedzenia w mieście oraz aktualnej liczy koni.',
+                    Współczynnik przyrostu liczby koni zależy od jedzenia w mieście oraz aktualnej liczy koni.',
                     'wood'=>5000,
                     'stone'=>5000,
                     'pos'=>$slug,

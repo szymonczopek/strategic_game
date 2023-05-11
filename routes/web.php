@@ -39,6 +39,7 @@ Route::post('/newStore/{slug}', [App\Http\Controllers\StoreController::class, 'n
 
 
 Route::get('/MUR', [App\Http\Controllers\WallController::class, 'create'])->name('wall.create')->middleware('auth');
+Route::get('/newBuild/wall', [App\Http\Controllers\WallController::class, 'newWall'])->name('wall.newWall')->middleware('auth');
 
 Route::get('/DRWAL', [App\Http\Controllers\BonusBuildingController::class, 'woodcutter'])->name('bonusbuilding.woodcutter')->middleware('auth');
 Route::post('/newWoodcutter/{slug}', [App\Http\Controllers\BonusBuildingController::class, 'newWoodcutter'])->name('bonusBuilding.newWoodcutter')->middleware('auth');
