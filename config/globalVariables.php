@@ -19,7 +19,12 @@ return [
             'wall' => 'https://imageupload.io/ib/s10cWt2DuSOmfSh_1683750434.png',
             'wallFront' => 'https://imageupload.io/ib/SXIho5VLNq1JtS3_1683750434.png',
            ],
-    'buildings'=>[]
+    'buildings' => [],
+    'ratio' => [
+        'buildTimeRatio' => 1.2,
+        'buildRatio' => 1.6,
+        'populationMaxRatio' => 1.4,
+    ]
 
 
 

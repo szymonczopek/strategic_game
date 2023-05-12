@@ -20,7 +20,6 @@ class CreateTownHallsTable extends Migration
             $table->integer('population');
             $table->float('populationRatio');
             $table->integer('populationMax');
-            $table->float('populationMaxRatio');
             $table->integer('populationTime');
             $table->integer('freeWorkTime');
             $table->integer('woodWorkTime');
@@ -34,11 +33,10 @@ class CreateTownHallsTable extends Migration
             $table->integer('stonepitRatio');
             $table->integer('agroRatio');
             $table->integer('buildTime');
-            $table->float('buildTimeRatio');
             $table->integer('buildEnd')->nullable();
             $table->integer('wood');
             $table->integer('stone');
-            $table->float('buildRatio');
+
         });
     }
 

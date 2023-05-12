@@ -9,21 +9,25 @@ use App\Models\Stable;
 use App\Models\townHall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\GlobalTrait;
 
 class TownHallController extends Controller
 {
+    use GlobalTrait;
 
-    public function create()
+    public function displayTownhall()
     {
-        $city = City::where('idUser', Auth::id())->first();
-        $loadPositions = BoardPosition::where('idCity', $city->id)->get();
+        $townHallPicture = config('globalVariables.link.townHall');
+
+        $city = $this->getCity(Auth::id());
+        $loadPositions = $this->getCityPositions($city);
 
         $horses = NULL;
-        $horsesMax=NULL;
+        $horsesMax = NULL;
 
         //sprwdzenie czy isnieje stajnia
         foreach ($loadPositions as $loadPosition){
-            if($loadPosition->idStable !== NULL)
+            if($loadPosition -> idStable !== NULL)
             {
                 $stable = Stable::where('id', $loadPosition->idStable)->first();
                 $horses=$stable->horseAmount;
@@ -36,57 +40,68 @@ class TownHallController extends Controller
 
             if ($loadPosition->idTownHall !== NULL) {
 
-                $th = TownHall::where('id', $loadPosition->idTownHall)->first();
+                $townHall = TownHall::where('id', $loadPosition->idTownHall) -> first();
+                $this -> resourcesUpdate($townHall, $city);
 
+                $populationMaxRatio = config('globalVariables.ratio.populationMaxRatio');
                 //czas populacji
-                if($th->population!==$th->populationMax)
+                if($townHall -> population !== $townHall -> populationMax)
                 {
-                    $th->update(['populationRatio'=>round(((int)$city->food/(int)$th->population),2)]);
-                    $time = time() - $th->populationTime;
-                    $before=$th->population;
+                    $townHall -> update(['populationRatio' => round(((int)$city -> food / (int)$townHall -> population),2)]);
+                    $time = time() - $townHall -> populationTime;
+                    $before = $townHall -> population;
 
-                    if ($th->population > ($th->populationMax )) {
-                        $th->update([
-                            'population' => $th->populationMax,
+                    if ($townHall -> population > ($townHall -> populationMax )) {
+                        $townHall -> update([
+                            'population' => $townHall -> populationMax,
                             'populationRatio' => 0,
-                            'populationFree'=>(int)$th->populationMax-(int)$th->populationForest-(int)$th->populationStonepit-(int)$th->populationAgro,
+                            'populationFree' => (int)$townHall -> populationMax-(int)$townHall -> populationForest - (int)$townHall -> populationStonepit - (int)$townHall -> populationAgro,
                         ]);
 
                     }
                     else {
-                        $th->update(['population' => (int)($th->population +  $th->populationRatio * $time)]);
-                        $th->update(['populationFree' =>(int)($th->populationFree +  $th->populationRatio * $time)]);
-                        $after=$th->population;
-                        if($after>$before) $th->update(['populationTime' => time()]);
+                        $townHall -> update(['population' => (int)($townHall -> population + $townHall -> populationRatio * $time)]);
+                        $townHall -> update(['populationFree' => (int)($townHall -> populationFree +  $townHall -> populationRatio * $time)]);
+                        $after =$townHall -> population;
+                        if($after > $before) $townHall -> update(['populationTime' => time()]);
                     }
 
 
                 }
 
-                if ($th !== NULL) {
-                    return view('buildings.townHall', ['cityName' => $city->cityName,
-                        'gold' => $city->gold,
-                        'wood' => $city->wood,
-                        'stone' => $city->stone,
-                        'food' => $city->food,
-                        'level' => $th->level,
-                        'population' => $th->population,
-                        'populationRatio' => $th->populationRatio,
-                        'populationMax' => $th->populationMax,
-                        'populationMaxRatio' => $th->populationMaxRatio,
-                        'populationForest' => $th->populationForest,
-                        'populationStonepit' => $th->populationStonepit,
-                        'populationAgro' => $th->populationAgro,
-                        'populationFree' => $th->populationFree,
-                        'forestRatio' => $th->forestRatio,
-                        'stonepitRatio' => $th->stonepitRatio,
-                        'agroRatio' => $th->agroRatio,
-                        'buildTime' => $th->buildTime,
-                        'woodNeed' => $th->wood,
-                        'stoneNeed' => $th->stone,
-                        'horses'=>$horses
+                if ($townHall !== NULL) {
+                    return view('buildings.townHall', [
+                        'cityName' => $city -> cityName,
+                        'gold' => $city -> gold,
+                        'wood' => $city -> wood,
+                        'stone' => $city -> stone,
+                        'food' => $city -> food,
+                        'level' => $townHall -> level,
+                        'population' => $townHall -> population,
+                        'populationRatio' => $townHall -> populationRatio,
+                        'populationMax' => $townHall -> populationMax,
+                        'populationMaxRatio' => $populationMaxRatio,
+                        'populationForest' => $townHall -> populationForest,
+                        'populationStonepit' => $townHall -> populationStonepit,
+                        'populationAgro' => $townHall -> populationAgro,
+                        'populationFree' => $townHall -> populationFree,
+                        'forestRatio' => $townHall -> forestRatio,
+                        'stonepitRatio' => $townHall -> stonepitRatio,
+                        'agroRatio' => $townHall -> agroRatio,
+                        'buildTime' => $townHall -> buildTime,
+                        'woodNeed' => $townHall -> wood,
+                        'stoneNeed' => $townHall -> stone,
+                        'horses' => $horses,
+                        'townHallPicture' => $townHallPicture,
                     ]);
-                } else dd("brak budynku");
+                } else return view('layouts.error', [
+                    'cityName' => $city->cityName,
+                    'gold' => $city->gold,
+                    'wood' => $city->wood,
+                    'stone' => $city->stone,
+                    'food' => $city->food,
+                    'messege' => 'brak budynku.'
+                ]);
             }
         }
     }
@@ -94,44 +109,51 @@ class TownHallController extends Controller
 
     public function changeWorkersAmount(Request $request)
     {
-        $city = City::where('idUser', Auth::id())->first();
-        $loadPositions = BoardPosition::where('idCity', $city->id)->get();
+        $city = $this->getCity(Auth::id());
+        $loadPositions = $this->getCityPositions($city);
 
         $horses = NULL;
         $horsesMax=NULL;
 
 
         foreach ($loadPositions as $loadPosition){
-            if($loadPosition->idStable !== NULL)
+            if($loadPosition -> idStable !== NULL)
             {
-                $stable = Stable::where('id', $loadPosition->idStable)->first();
-                $horses=$stable->horseAmount;
-                $horsesMax=$stable->horseMax;
+                $stable = Stable::where('id', $loadPosition->idStable) -> first();
+                $horses = $stable -> horseAmount;
+                $horsesMax = $stable -> horseMax;
 
             }
         }
 
         foreach ($loadPositions as $loadPosition)
         {
-            if ($loadPosition->idTownHall !== NULL)
+            if ($loadPosition -> idTownHall !== NULL)
             {
-                $th = TownHall::where('id', $loadPosition->idTownHall)->first();
+                $townHall = TownHall::where('id', $loadPosition->idTownHall)->first();
                 if(isset($request->populationForest) && isset($request->populationStonepit) && isset($request->populationAgro)) {
-                    if ((int)($request->populationForest + $request->populationStonepit + $request->populationAgro) <= $th->population + 2 * $horses) {
+                    if ((int)($request->populationForest + $request->populationStonepit + $request->populationAgro) <= $townHall->population + 2 * $horses) {
 
-                        $pf = $th->population+2*$horses - ($request->populationForest + $request->populationStonepit + $request->populationAgro);
-                        $th->update([
+                        $populationFree = $townHall -> population+2*$horses - ($request->populationForest + $request->populationStonepit + $request->populationAgro);
+                        $townHall->update([
                             'populationForest' => $request->populationForest,
                             'populationStonepit' => $request->populationStonepit,
                             'populationAgro' => $request->populationAgro,
-                            'populationFree' => $pf,
+                            'populationFree' => $populationFree,
                             'woodWorkTime' => time(),
                             'stoneWorkTime' => time(),
                             'agroWorkTime' => time(),
                             'freeWorkTime' => time(),
                         ]);
                         return redirect('/RATUSZ');
-                    } else dd('błąd: suma pracowników przekracza liczbe mieszkańcow');
+                    } else return view('layouts.error', [
+                        'cityName' => $city->cityName,
+                        'gold' => $city->gold,
+                        'wood' => $city->wood,
+                        'stone' => $city->stone,
+                        'food' => $city->food,
+                        'messege' => 'Suma pracownikow przewyzsza liczbe meiszkancow!.'
+                    ]);
                 }
                 else dd('błąd: uzupełnij wszystkie pola wartosciami');
             }

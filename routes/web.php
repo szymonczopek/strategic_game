@@ -27,7 +27,7 @@ Route::post('/changedPassword', [App\Http\Controllers\HomeController::class, 'ch
 Route::post('/createCity', [App\Http\Controllers\CityController::class, 'createCity'])->name('cities.createCity')->middleware('auth');
 Route::get('/board', [App\Http\Controllers\CityController::class, 'displayBoard'])->name('cities.displayBoard')->middleware('auth');
 
-Route::get('/RATUSZ', [App\Http\Controllers\TownHallController::class, 'create'])->name('townhall.create')->middleware('auth');
+Route::get('/RATUSZ', [App\Http\Controllers\TownHallController::class, 'displayTownhall'])->name('townhall.displayTownhall')->middleware('auth');
 Route::post('/changeWorkersAmount', [App\Http\Controllers\TownHallController::class, 'changeWorkersAmount'])->name('townhall.changeWorkersAmount')->middleware('auth');
 
 Route::get('/AKADEMIA', [App\Http\Controllers\UniversityController::class, 'create'])->name('university.create')->middleware('auth');

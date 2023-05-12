@@ -35,7 +35,8 @@ class CityController extends Controller
         foreach ($loadPositions as $loadPosition) {
 
             if ($loadPosition -> idTownHall !== NULL) {
-                $this->resourcesUpdate($loadPosition -> idTownHall, $city);
+                $townHall = townHall::where('id', $loadPosition -> idTownHall) -> first();
+                $this->resourcesUpdate($townHall, $city);
             }
                     foreach ($loadPositions as $loadPosition) {
 
@@ -59,8 +60,8 @@ class CityController extends Controller
                         }
                         if ($loadPosition->idTownHall !== NULL) {
                             $posName[$loadPosition -> position] = 'RATUSZ';
-                            $townhall = townHall::where('id',$loadPosition -> idTownHall)->first();
-                            if($townhall -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.townHall');
+                            $townHall = townHall::where('id',$loadPosition -> idTownHall)->first();
+                            if($townHall -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.townHall');
                             else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
                         }
                         if ($loadPosition->idArmy !== NULL) {
@@ -170,12 +171,11 @@ class CityController extends Controller
 
                 ]);
 
-                $townhall = TownHall::create([
+                $townHall = TownHall::create([
                     'level' => 1,
                     'population' => 10,
                     'populationRatio' => 0,
                     'populationMax' => 1000,
-                    'populationMaxRatio' => 1.4,
                     'populationTime' => time(),
                     'woodWorkTime' => time(),
                     'stoneWorkTime' => time(),
@@ -189,16 +189,15 @@ class CityController extends Controller
                     'stonepitRatio' => 10,
                     'agroRatio' => 10,
                     'buildTime' => 3600,
-                    'buildTimeRatio' => 1.2,
                     'wood' => 5000,
                     'stone' => 5000,
-                    'buildRatio' => 1.6
+
                 ]);
 
                 BoardPosition::create([
                     'position' => 1,
                     'idCity' => $city->id,
-                    'idTownHall' => $townhall->id
+                    'idTownHall' => $townHall->id
                 ]);
 
                 return view('layouts.error', [

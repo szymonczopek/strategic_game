@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Ratusz - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/eFVt7dB5_ratusz_wyciety.png">
+                <img src="{{$townHallPicture}}">
                 <div class="buildBack">
                     <div class="building">
                         <div>
@@ -71,7 +71,7 @@
                     <h1>Praca w mieście</h1>
                         <form method="POST" action="{{route('townhall.changeWorkersAmount')}}">
                             @csrf
-                            <div class="workLine" id="workLineTitle"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/1083/1083298.png">Łączna populacja do pracy:</div> <div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/900/900783.png"></div><div>Ludzie:{{$population}}</div></div><div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn-icons.flaticon.com/png/512/4989/premium/4989187.png?token=exp=1640872289~hmac=c654d4f2b896f390b3f1097c7ef283fc"></div><div>Konie:@if($horses===NULL)0 @else{{$horses}}@endif&nbsp x2</div></div></div>
+                            <div class="workLine" id="workLineTitle"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/1083/1083298.png">Łączna populacja do pracy:</div> <div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn-icons-png.flaticon.com/512/900/900783.png"></div><div>Ludzie:{{$population}}</div></div><div class="scientistIcon"><div class="iconWorkInfo"><img src="https://cdn4.iconfinder.com/data/icons/marketing-and-digital-marketing-1/32/business_marketing_advertising_competition-512.png"></div><div>Konie:@if($horses===NULL)0 @else{{$horses}}@endif&nbsp x2</div></div></div>
                             <div class="workLine"><div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/482/482506.png"></div><div>Populacja wolna:&nbsp {{$populationFree}}</div><div>{{$populationFree}}&nbspx</div><div>+10&nbspmonet/h</div></div>
                             <div class="workLine"><div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/2077/2077113.png"></div><div>Pracownicy w lesie:&nbsp {{$populationForest}}/{{$populationFree}}</div><div><input name="populationForest" type="number" value="{{$populationForest}}" max="{{$population+2*$horses}}" min="0">&nbspx</div><div>+{{$forestRatio}}&nbspdrewna/h</div></div>
                             <div class="workLine"><div class="iconWork"><img src="https://cdn4.iconfinder.com/data/icons/build-a-house-outline/512/concrete_plaster_stone_structure_surface_cement_wallpaper-256.png"></div><div>Pracownicy w kamieniołomie:&nbsp {{$populationStonepit}}/{{$populationFree}}</div><div><input name="populationStonepit" type="number" value="{{$populationStonepit}}" max="{{$population+2*$horses}}" min="0">&nbsp x</div><div>+{{$stonepitRatio}}&nbspkamienia/h</div></div>

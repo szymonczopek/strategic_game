@@ -35,10 +35,10 @@ trait GlobalTrait {
         }
         return $loadPositions;
     }
-    public function resourcesUpdate($idTownHall, $city)
+    public function resourcesUpdate($townHall, $city)
     {
         try {
-            $townHall = TownHall::where('id', $idTownHall)->first();
+            $townHall = TownHall::where('id', $townHall -> id)->first();
             if (!$townHall) {
                 throw new Exception("Nie znaleziono ratusza tego uzytkownika");
             }
