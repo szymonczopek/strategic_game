@@ -109,12 +109,11 @@ class TownHallController extends Controller
 
     public function changeWorkersAmount(Request $request)
     {
-        $city = $this->getCity(Auth::id());
-        $loadPositions = $this->getCityPositions($city);
+        $city = $this -> getCity(Auth::id());
+        $loadPositions = $this -> getCityPositions($city);
 
         $horses = NULL;
-        $horsesMax=NULL;
-
+        $horsesMax = NULL;
 
         foreach ($loadPositions as $loadPosition){
             if($loadPosition -> idStable !== NULL)
@@ -130,12 +129,12 @@ class TownHallController extends Controller
         {
             if ($loadPosition -> idTownHall !== NULL)
             {
-                $townHall = TownHall::where('id', $loadPosition->idTownHall)->first();
-                if($request->populationForest !==NULL && $request->populationStonepit !== NULL && $request->populationAgro !== NULL) {
-                    if ((int)($request->populationForest + $request->populationStonepit + $request->populationAgro) <= $townHall->population + 2 * $horses) {
+                $townHall = TownHall::where('id', $loadPosition -> idTownHall) -> first();
+                if($request -> populationForest !== NULL && $request -> populationStonepit !== NULL && $request -> populationAgro !== NULL) {
+                    if ((int)($request -> populationForest + $request -> populationStonepit + $request->populationAgro) <= $townHall -> population + 2 * $horses) {
 
-                        $populationFree = $townHall -> population+2*$horses - ($request->populationForest + $request->populationStonepit + $request->populationAgro);
-                        $townHall->update([
+                        $populationFree = $townHall -> population + 2* $horses - ($request -> populationForest + $request -> populationStonepit + $request -> populationAgro);
+                        $townHall -> update([
                             'populationForest' => $request->populationForest,
                             'populationStonepit' => $request->populationStonepit,
                             'populationAgro' => $request->populationAgro,
@@ -147,11 +146,11 @@ class TownHallController extends Controller
                         ]);
                         return redirect('/RATUSZ');
                     } else return view('layouts.error', [
-                        'cityName' => $city->cityName,
-                        'gold' => $city->gold,
-                        'wood' => $city->wood,
-                        'stone' => $city->stone,
-                        'food' => $city->food,
+                        'cityName' => $city -> cityName,
+                        'gold' => $city -> gold,
+                        'wood' => $city -> wood,
+                        'stone' => $city -> stone,
+                        'food' => $city -> food,
                         'messege' => 'Suma pracownikow przewyzsza liczbe meiszkancow!.'
                     ]);
                 }
