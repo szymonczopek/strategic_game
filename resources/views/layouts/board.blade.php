@@ -13,12 +13,12 @@
 <div class="city">
 
 <div class="background"><img src="{{$backgroundPicture}}">
-    @if(isset($buildings[8]['link']))
+    @if($buildings[8]['link'] !== NULL)
         <div class="pos8"><img src="{{$buildings[8]['link']}}"><a href="{{$buildings[8]['name']}}"><img src="{{$flagPicture}}"><ul><li>{{$buildings[8]['name']}}</li></ul></a></div>
     @else <div class="pos8null" ><div><a href="newBuild/wall"><img src="{{$flagPicture}}"></a></div></div>
     @endif
     @for($i=1;$i<=7;$i++)
-        @if(isset($buildings[$i]['link']))
+        @if($buildings[$i]['link'] !== NULL)
             <div class="pos{{$i}}"><a href="{{$buildings[$i]['name']}}"><img src="{{$buildings[$i]['link']}}"><ul><li>{{$buildings[$i]['name']}}</li></ul></a></div>
             @else <div class="pos{{$i}}" ><a href="newBuild/{{$i}}"><img src="{{$flagPicture}}"></a></div>
         @endif

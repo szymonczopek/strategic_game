@@ -23,7 +23,7 @@
                     </div>
                 </div>
             @for($i=1;$i<=9;$i++)
-                    @if(isset($builds[$i]['name']))
+                    @if($builds[$i] !== NULL)
                         <div class="addBuildLine"><div>{{$builds[$i]['name']}}</div><div><img src="{{$builds[$i]['link']}}"></div><div>{{$builds[$i]['description']}}</div><div><div>Drewno:{{$builds[$i]['wood']}}</div><div>Kamien:{{$builds[$i]['stone']}}</div></div><div> <form method="POST" action="{{$builds[$i]['route']}}{{$builds[$i]['pos']}}">@csrf<button type="submit">Wybuduj</button></form></div></div>
                     @endif
                     @endfor
@@ -32,7 +32,7 @@
            </div>
 
         {{-- @for($i=1;$i<=9;$i++)
-             @if(isset($builds[$i]['name']))
+             @if($builds[$i]['name'] !== NULL)
                {{$builds[$i]['name']}} </br>
            @endif
            @endfor--}}
