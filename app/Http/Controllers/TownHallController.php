@@ -131,7 +131,7 @@ class TownHallController extends Controller
             if ($loadPosition -> idTownHall !== NULL)
             {
                 $townHall = TownHall::where('id', $loadPosition->idTownHall)->first();
-                if(isset($request->populationForest) && isset($request->populationStonepit) && isset($request->populationAgro)) {
+                if($request->populationForest !==NULL && $request->populationStonepit !== NULL && $request->populationAgro !== NULL) {
                     if ((int)($request->populationForest + $request->populationStonepit + $request->populationAgro) <= $townHall->population + 2 * $horses) {
 
                         $populationFree = $townHall -> population+2*$horses - ($request->populationForest + $request->populationStonepit + $request->populationAgro);

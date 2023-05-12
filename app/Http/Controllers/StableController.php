@@ -53,10 +53,12 @@ class StableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function displayStable()
     {
-        $city = City::where('idUser', Auth::id())->first();
-        $loadPositions = BoardPosition::where('idCity', $city->id)->get();
+        $city = $this->getCity(Auth::id());
+        $loadPositions = $this->getCityPositions($city);
+
+        $stablePicture = config('globalVariables.link.stable');
 
         foreach ($loadPositions as $loadPosition) {
 
@@ -111,6 +113,7 @@ class StableController extends Controller
                                 'buildTime' => $stable->buildTime,
                                 'woodNeed' => $stable->wood,
                                 'stoneNeed' => $stable->stone,
+                                'stablePicture' => $stablePicture,
                             ]);
                     } else return view('layouts.building', [
                         'cityName' => $city->cityName,
@@ -120,7 +123,7 @@ class StableController extends Controller
                         'food' => $city->food,
                         'level' => $stable->level,
                         'name' => 'Stajnia',
-                        'link' => 'https://cdn.imageupload.workers.dev/De6JKTE0_stajnia-wyciete.png',
+                        'link' => $stablePicture,
                         'buildEnd'=>$stable->buildEnd-time(),
                     ]);
                 }else dd("brak budynku");

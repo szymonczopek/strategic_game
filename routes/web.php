@@ -56,7 +56,7 @@ Route::post('/newArchitect/{slug}', [App\Http\Controllers\BonusBuildingControlle
 Route::get('/INŻYNIER', [App\Http\Controllers\BonusBuildingController::class, 'engineer'])->name('bonusbuilding.engineer')->middleware('auth');
 Route::post('/newEngineer/{slug}', [App\Http\Controllers\BonusBuildingController::class, 'newEngineer'])->name('bonusBuilding.newEngineer')->middleware('auth');
 
-Route::get('/STAJNIA', [App\Http\Controllers\StableController::class, 'create'])->name('stable.create')->middleware('auth');
+Route::get('/STAJNIA', [App\Http\Controllers\StableController::class, 'displayStable'])->name('stable.displayStable')->middleware('auth');
 Route::post('/newStable/{slug}', [App\Http\Controllers\StableController::class, 'newStable'])->name('stable.newStable')->middleware('auth');
 
 Route::get('/KOSZARY', [App\Http\Controllers\ArmyController::class, 'create'])->name('army.create')->middleware('auth');

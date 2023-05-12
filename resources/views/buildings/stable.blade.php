@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Stajnia - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/n3fNlnYs_stajnia-wyciete.png">
+                <img src="{{$stablePicture}}">
                 <div class="buildBack">
                     <div class="building">
                         <div>
@@ -59,7 +59,7 @@
                 <div class="mainInfo">
                  <h1> Dane stajni</h1>
                     <div>
-                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons.flaticon.com/png/512/4989/premium/4989187.png?token=exp=1640872289~hmac=c654d4f2b896f390b3f1097c7ef283fc"></div> Liczba koni:&nbsp{{$horseAmount}} / {{$horseMax}}</div>
+                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn4.iconfinder.com/data/icons/marketing-and-digital-marketing-1/32/business_marketing_advertising_competition-512.png"></div> Liczba koni:&nbsp{{$horseAmount}} / {{$horseMax}}</div>
                         <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons-png.flaticon.com/512/3500/3500797.png"></div>  Współczynnik przyrostu liczby koni:&nbsp @if($horseRatio>0) +{{$horseRatio}}@else{{$horseRatio}}@endif/h</div>
 
                     </div>
