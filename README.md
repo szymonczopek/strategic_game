@@ -28,7 +28,7 @@ In the project directory, run the following command to install all the required 
 
 ### 4. Configure the environment:</br>
 
-Copy the .env.example file and rename it as .env. You can do this by running the following command:</br>
+Copy the .env.example file and rename it as .env. You can do this by running the following Bash command:</br>
 
     cp .env.example .env
 
