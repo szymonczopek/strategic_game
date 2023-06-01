@@ -4,10 +4,10 @@ To run this program:
 
 1. Make sure you have the following tools installed on your computer:
 
-PHP (recommended version 7.2 or newer)
-Composer (dependency management tool for PHP projects)
-Database MySql
-Web server (e.g., Apache, Nginx, etc.)
+PHP (recommended version 7.2 or newer)</br>
+Composer (dependency management tool for PHP projects)</br>
+Database MySql</br>
+Web server (e.g., Apache, Nginx, etc.)</br>
 
 2. Download the code from GitHub:
 
