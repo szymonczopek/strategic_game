@@ -19,7 +19,7 @@
                 <div class="buildBack">
                     <div class="building">
                         <div>
-                            <a href="/wp.pl">
+                            <a href="">
                                 <div>Rozbuduj do {{$level+1}} poziomu</div>
                                 <div>
                                     <img src="https://cdn0.iconfinder.com/data/icons/miscellaneous-35-line/128/build_construction_house_making_harmer_-256.png">

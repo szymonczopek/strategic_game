@@ -32,7 +32,6 @@ class TownHallController extends Controller
                 $stable = Stable::where('id', $loadPosition->idStable)->first();
                 $horses=$stable->horseAmount;
                 $horsesMax=$stable->horseMax;
-
             }
         }
 

@@ -13,7 +13,6 @@ class townHall extends Model
         'population',
         'populationRatio',
         'populationMax',
-        'populationMaxRatio',
         'populationTime',
         'freeWorkTime',
         'woodWorkTime',
@@ -27,11 +26,10 @@ class townHall extends Model
         'agroRatio',
         'forestRatio',
         'buildTime',
-        'buildTimeRatio',
         'buildEnd',
         'wood',
         'stone',
-        'buildRatio',
+
     ];
 
 }

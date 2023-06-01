@@ -161,7 +161,6 @@ class CityController extends Controller
                     'idUser' => Auth::id(),
 
                 ]);
-
                 $townHall = TownHall::create([
                     'level' => 1,
                     'population' => 10,

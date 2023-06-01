@@ -36,7 +36,6 @@ class CreateTownHallsTable extends Migration
             $table->integer('buildEnd')->nullable();
             $table->integer('wood');
             $table->integer('stone');
-
         });
     }
 
