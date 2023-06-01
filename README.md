@@ -16,7 +16,7 @@ Web server (e.g., Apache, etc.)</br>
 
 ### 2. Download the code from GitHub:</br>
 
-    git clone szymonczopek/strategic_game
+    git clone https://github.com/szymonczopek/strategic_game.git
 
 ### 3. Install dependencies:</br>
 
