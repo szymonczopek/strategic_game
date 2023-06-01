@@ -11,7 +11,7 @@ To run this program:</br>
 
 2. Download the code from GitHub:</br>
 
-    git clone szymonczopek/strategic_game</br>
+    <div style="color: grey;">git clone szymonczopek/strategic_game</br></div>
 
 3. Install dependencies:</br>
 
