@@ -45,4 +45,4 @@ Run the built-in Laravel development server by executing the following command:<
 
     php artisan serve
 
-## Once the server is running, the application will be accessible at http://localhost:8000.</br>
+# Once the server is running, the application will be accessible at http://localhost:8000.</br>
