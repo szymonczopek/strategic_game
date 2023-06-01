@@ -13,7 +13,7 @@
         <div class="build">
             <div class="buildInfo1">
                 <div class="buildTitle">Kamieniarz - Poziom {{$level}}</div>
-                <img src="https://cdn.imageupload.workers.dev/9R9QV8Jt_kamieniarz-wyciety.png">
+                <img src="{{$link}}">
                 <div class="buildBack">
                     <div class="building">
                         <div>
@@ -59,7 +59,7 @@
                  <h1> Dane kamieniarza</h1>
                     <div>
                         <div class="infoLine"> <div class="iconWork"><img src="https://cdn4.iconfinder.com/data/icons/build-a-house-outline/512/concrete_plaster_stone_structure_surface_cement_wallpaper-256.png"></div>Aktualne tępo wydobycia kamienia:&nbsp+{{$stonepitRatio}}/h</div>
-                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn-icons.flaticon.com/png/512/1357/premium/1357714.png?token=exp=1640872388~hmac=00f74f1d1973069bb383b04b11b4cd12"></div>Aktualny bonus:&nbsp+{{$bonus}}/h</div>
+                        <div class="infoLine"> <div class="iconWork"><img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/trending-up-256.png"></div>Aktualny bonus:&nbsp+{{$bonus}}/h</div>
 
 
                     </div>

@@ -180,6 +180,7 @@ class BonusBuildingController extends Controller
                         'woodNeed' => $bonusBuilding->wood,
                         'stoneNeed' => $bonusBuilding->stone,
                         'stonepitRatio' => $townhall->stonepitRatio,
+                        'link' => config('globalVariables.link.stonemason'),
                     ]);
             } else return view('layouts.building', [
                 'cityName' => $city->cityName,
@@ -189,7 +190,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Kamieniarz',
-                'link' => 'https://cdn.imageupload.workers.dev/SRcZmXTD_kamieniarz-wyciety.png',
+                'link' => config('globalVariables.link.stonemason'),
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
@@ -280,7 +281,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Młyn',
-                'link' => 'https://cdn.imageupload.workers.dev/4B09lXwY_mlyn-wyciety.png',
+                'link' => config('globalVariables.link.mill'),
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
@@ -364,7 +365,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Inżynier',
-                'link' => 'https://cdn.imageupload.workers.dev/YAa15agg_inzynier-wyciety.png',
+                'link' => config('globalVariables.link.engineer'),
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
@@ -448,7 +449,7 @@ class BonusBuildingController extends Controller
                 'food' => $city->food,
                 'level' => $bonusBuilding->level,
                 'name' => 'Architekt',
-                'link' => 'https://cdn.imageupload.workers.dev/679UkLQV_architekt-wyciety.png',
+                'link' => config('globalVariables.link.architect'),
                 'buildEnd'=>$bonusBuilding->buildEnd-time(),
             ]);
         } else dd("brak budynku");
