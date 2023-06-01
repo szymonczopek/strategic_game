@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'checkCityExists'])->name('home.checkCityExists')->middleware('auth');
 
 Route::get('/changePassword', [App\Http\Controllers\HomeController::class, 'create'])->name('createPasswordForm')->middleware('auth');
-Route::post('/changedPassword', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword')->middleware('auth');
+Route::post('/changePassword', [App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword')->middleware('auth');
 
 Route::post('/createCity', [App\Http\Controllers\CityController::class, 'createCity'])->name('cities.createCity')->middleware('auth');
 Route::get('/board', [App\Http\Controllers\CityController::class, 'displayBoard'])->name('cities.displayBoard')->middleware('auth');
