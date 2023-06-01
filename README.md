@@ -1,6 +1,7 @@
 # Strategic browser game</br>
 
 <img  src="https://imageupload.io/ib/rgf23yPaudV2Dqe_1685618193.png" alt="graaa.png"/>
+<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="ratusz.png"/>
 
 ## To run this program:</br>
 
