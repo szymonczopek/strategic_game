@@ -6,8 +6,8 @@
 
 PHP (recommended version 7.2 or newer)</br>
 Composer (dependency management tool for PHP projects)</br>
-Database MySql</br>
-Web server (e.g., Apache, Nginx, etc.)</br>
+Database MySql(recommended version 8.0 or newer)</br>
+Web server (e.g., Apache, etc.)</br>
 
 ### 2. Download the code from GitHub:</br>
 
