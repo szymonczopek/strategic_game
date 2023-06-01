@@ -1,5 +1,7 @@
 # Strategic browser game</br>
 
+<img  src="https://imageupload.io/ib/rgf23yPaudV2Dqe_1685618193.png" alt="graaa.png"/>
+
 ## To run this program:</br>
 
 ### 1. Make sure you have the following tools installed on your computer:</br>
