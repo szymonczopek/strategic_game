@@ -1,6 +1,6 @@
 # Strategic browser game</br>
 
-<img  src="https://imageupload.io/ib/rgf23yPaudV2Dqe_1685618193.png" alt="graaa.png"/>
+<img  src="https://imageupload.io/ib/BUneZNCOz4JSfgv_1685779408.png" alt="graaa.png"/>
 <img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="ratusz.png"/>
 <img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="kamieniarz.png"/>
 <img  src="https://imageupload.io/ib/5pCX1oVsgx1p480_1685619193.png" alt="buduj.png"/>
