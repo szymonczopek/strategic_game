@@ -1,9 +1,10 @@
 # Strategic browser game</br>
 
-<img  src="https://imageupload.io/ib/qjuHbjDSOUhwz3t_1685779478.png" alt="graaa.png"/>
-<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="ratusz.png"/>
-<img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="kamieniarz.png"/>
-<img  src="https://imageupload.io/ib/5pCX1oVsgx1p480_1685619193.png" alt="buduj.png"/>
+<img  src="https://imageupload.io/ib/qjuHbjDSOUhwz3t_1685779478.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/CgUMXGpZlmmmYa8_1685780291.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/g9EhrAyUmsY4s7G_1685780445.png" alt="Strategic browser game photo"/>
 
 ## To run this program:</br>
 
