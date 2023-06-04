@@ -1,9 +1,11 @@
 # Strategic browser game</br>
 
-<img  src="https://imageupload.io/ib/rgf23yPaudV2Dqe_1685618193.png" alt="graaa.png"/>
-<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="ratusz.png"/>
-<img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="kamieniarz.png"/>
-<img  src="https://imageupload.io/ib/5pCX1oVsgx1p480_1685619193.png" alt="buduj.png"/>
+Real - time strategy browser game. The gameplay is about managing a medieval city. The player acquires materials from which he builds buildings. Each building has a specific function in the city. In-game events take place in real time.
+
+<img  src="https://imageupload.io/ib/qjuHbjDSOUhwz3t_1685779478.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="Strategic browser game photo"/>
+<img  src="https://imageupload.io/ib/Mk0N5InEIxIvTM9_1685780607.png" alt="Strategic browser game photo"/>
 
 ## To run this program:</br>
 
@@ -16,6 +18,8 @@ Web server (e.g., Apache, etc.)</br>
 
 ### 2. Download the code from GitHub:</br>
 
+Using Git repository, you can use this command:
+
     git clone https://github.com/szymonczopek/strategic_game.git
 
 ### 3. Install dependencies:</br>
@@ -26,7 +30,7 @@ In the project directory, run the following command to install all the required 
 
 ### 4. Configure the environment:</br>
 
-Copy the .env.example file and rename it as .env. You can do this by running the following command:</br>
+Copy the .env.example file and rename it as .env. You can do this by running the following Bash command:</br>
 
     cp .env.example .env
 
