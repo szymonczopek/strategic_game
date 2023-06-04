@@ -1,5 +1,7 @@
 # Strategic browser game</br>
 
+Real - time strategy browser game. The gameplay is about managing a medieval city. The player acquires materials from which he builds buildings. Each building has a specific function in the city. In-game events take place in real time.
+
 <img  src="https://imageupload.io/ib/qjuHbjDSOUhwz3t_1685779478.png" alt="Strategic browser game photo"/>
 <img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="Strategic browser game photo"/>
 <img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="Strategic browser game photo"/>
