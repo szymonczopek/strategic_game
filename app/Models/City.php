@@ -10,12 +10,12 @@ class City extends Model
     use HasFactory;
 
     public $fillable = [
-        'cityName',
-        'gold',
-        'wood',
-        'stone',
-        'food',
-        'technologyPoints',
+       'cityName',
+       'gold',
+       'wood',
+       'stone',
+       'food',
+       'technologyPoints',
         'idUser',
     ];
 }

@@ -12,16 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ArmyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-    public function newArmy($slug)
+    public function createArmy($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
         if($city->wood >= 2000 && $city->stone >= 2000)
@@ -56,26 +47,21 @@ class ArmyController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function displayArmy()
     {
         $city = City::where('idUser', Auth::id())->first();
         $loadPositions = BoardPosition::where('idCity', $city->id)->get();
 
-        $woodCost=200;
-        $goldCost=100;
+        $soldierWoodCost=200;
+        $soldierGoldCost=100;
 
         foreach ($loadPositions as $loadPosition){
             if($loadPosition->idBonusBuilding !== NULL)
             {
                 $bonusBuilding = BonusBuilding::where('id', $loadPosition->idBonusBuilding)->first();
                 if($bonusBuilding->idBonusBuildingName===4) {
-                    $woodCost=$woodCost-'0.01'*$bonusBuilding->bonus*$woodCost;
-                   $goldCost=$goldCost-'0.01'*$bonusBuilding->bonus*$goldCost;
+                    $soldierWoodCost=$soldierWoodCost-'0.01'*$bonusBuilding->bonus*$soldierWoodCost;
+                   $soldierGoldCost=$soldierGoldCost-'0.01'*$bonusBuilding->bonus*$soldierGoldCost;
                 }
 
             }
@@ -91,7 +77,8 @@ class ArmyController extends Controller
 
                 if ($army !== NULL) {
                     if($army->buildEnd===NULL) {
-                        return view('buildings.army', ['cityName' => $city->cityName,
+                        return view('buildings.army', [
+                            'cityName' => $city->cityName,
                             'gold' => $city->gold,
                             'wood' => $city->wood,
                             'stone' => $city->stone,
@@ -103,8 +90,8 @@ class ArmyController extends Controller
                             'buildTime' => $army->buildTime,
                             'woodNeed' => $army->wood,
                             'stoneNeed' => $army->stone,
-                            'woodCost' => $woodCost,
-                            'goldCost' => $goldCost,
+                            'woodCost' => $soldierWoodCost,
+                            'goldCost' => $soldierGoldCost,
                             'populationFree' => $townhall->populationFree
                         ]);
                     }else return view('layouts.building', [
@@ -115,35 +102,39 @@ class ArmyController extends Controller
                         'food' => $city->food,
                         'level' => $army->level,
                         'name' => 'Koszary',
-                        'link' => 'https://cdn.imageupload.workers.dev/qoOhiYyN_koszary-wyciete.png',
+                        'link' => config('globalVariables.link.army'),
                         'buildEnd'=>$army->buildEnd-time(),
                     ]);
-                } else dd("brak armi");
+                }else return view('layouts.error',[
+                    'cityName' => $city->cityName,
+                    'gold' => $city->gold,
+                    'wood' => $city->wood,
+                    'stone' => $city->stone,
+                    'food' => $city->food,
+                    'errorInfo'=>'Brak armii.'
+                ]);
             }
         }
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $city = City::where('idUser', Auth::id())->first();
         $loadPositions = BoardPosition::where('idCity', $city->id)->get();
 
-        $woodCost=200;
-        $goldCost=100;
+        $soldierWoodCost=200;
+        $soldierGoldCost=100;
 
         foreach ($loadPositions as $loadPosition){
             if($loadPosition->idBonusBuilding !== NULL)
             {
                 $bonusBuilding = BonusBuilding::where('id', $loadPosition->idBonusBuilding)->first();
                 if($bonusBuilding->idBonusBuildingName===4) {
-                    $woodCost=$woodCost-'0.01'*$bonusBuilding->bonus*$woodCost;
-                    $goldCost=$goldCost-'0.01'*$bonusBuilding->bonus*$goldCost;
+                    $soldierWoodCost=$soldierWoodCost-'0.01'*$bonusBuilding->bonus*$soldierWoodCost;
+                    $soldierGoldCost=$soldierGoldCost-'0.01'*$bonusBuilding->bonus*$soldierGoldCost;
                 }
 
             }
@@ -155,16 +146,16 @@ class ArmyController extends Controller
             if ($loadPosition->idTownHall !== NULL) $townhall = TownHall::where('id', $loadPosition->idTownHall)->first();
             if ($loadPosition->idArmy !== NULL) {
                 $army=Army::where('id',$loadPosition->idArmy)->first();
-                if($request->armyAmount*$goldCost <= $city->gold && $request->armyAmount*$woodCost <= $city->wood &&
+                if($request->armyAmount*$soldierGoldCost <= $city->gold && $request->armyAmount*$soldierWoodCost <= $city->wood &&
                     $request->armyAmount <= $townhall->populationFree && $request->armyAmount <= $army->armyMax-$army->armyAmount)
                 {
-                    $city->update(['gold'=>$city->gold-$request->armyAmount*$goldCost,
-                    'wood'=>$city->wood-$request->armyAmount*$woodCost]);
+                    $city->update(['gold'=>$city->gold-$request->armyAmount*$soldierGoldCost,
+                    'wood'=>$city->wood-$request->armyAmount*$soldierWoodCost]);
                     $army->update([
                         'armyAmount'=>$army->armyAmount+$request->armyAmount
                     ]);
 
-                    return redirect('/KOSZARY');
+                    return redirect('/army');
                 }
                 else return view('layouts.error',[
                     'cityName' => $city->cityName,
@@ -178,48 +169,5 @@ class ArmyController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Army  $army
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Army $army)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Army  $army
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Army $army)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Army  $army
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Army $army)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Army  $army
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Army $army)
-    {
-        //
-    }
 }

@@ -13,13 +13,28 @@
 <div class="city">
 
 <div class="background"><img src="{{$backgroundPicture}}">
-    @if($buildings[8]['link'] !== NULL)
-        <div class="pos8"><img src="{{$buildings[8]['link']}}"><a href="{{$buildings[8]['name']}}"><img src="{{$flagPicture}}"><ul><li>{{$buildings[8]['name']}}</li></ul></a></div>
+    @if($buildings[8]['buildingLink'] !== NULL)
+        <div class="pos8">
+            <img src="{{$buildings[8]['buildingPicture']}}">
+            <a href="{{$buildings[8]['buildingLink']}}">
+                <img src="{{$flagPicture}}">
+                <ul>
+                    <li>{{$buildings[8]['buildingName']}}</li>
+                </ul>
+            </a>
+        </div>
     @else <div class="pos8null" ><div><a href="newBuild/wall"><img src="{{$flagPicture}}"></a></div></div>
     @endif
     @for($i=1;$i<=7;$i++)
-        @if($buildings[$i]['link'] !== NULL)
-            <div class="pos{{$i}}"><a href="{{$buildings[$i]['name']}}"><img src="{{$buildings[$i]['link']}}"><ul><li>{{$buildings[$i]['name']}}</li></ul></a></div>
+        @if($buildings[$i]['buildingLink'] !== NULL)
+            <div class="pos{{$i}}">
+                <a href="{{$buildings[$i]['buildingLink']}}">
+                    <img src="{{$buildings[$i]['buildingPicture']}}">
+                    <ul>
+                        <li>{{$buildings[$i]['buildingName']}}</li>
+                    </ul>
+                </a>
+            </div>
             @else <div class="pos{{$i}}" ><a href="newBuild/{{$i}}"><img src="{{$flagPicture}}"></a></div>
         @endif
     @endfor

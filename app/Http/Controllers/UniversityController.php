@@ -142,7 +142,7 @@ class UniversityController extends Controller
                         'scientists'=>$university->scientists+ $request->scientists,
                     ]);
 
-                    return redirect('/AKADEMIA');
+                    return redirect('/university');
                 }
                 else dd('błąd: za malo pieniedzy lub wolnych ludzi');
             }

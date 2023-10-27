@@ -6,8 +6,6 @@ use App\Models\BoardPosition;
 use App\Models\BonusBuilding;
 use App\Models\BonusBuildingName;
 use App\Models\City;
-use App\Models\Wall;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\GlobalTrait;
 
@@ -26,7 +24,7 @@ class BoardPositionController extends Controller
                 '1' => [
                     'link' => config('globalVariables.link.store'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newStore/',
+                    'route'=>'/createStore/',
                     'name'=>'Magazyn',
                     'description'=>'Magazyn to budynek w którym surowce są chronione przed atakiem wrogiego miasta. Każdy następny poziom magazynu zwiększa ilość chronionych zasobów w przypadku przegranej obrony miasta.',
                     'wood'=>2000,
@@ -36,7 +34,7 @@ class BoardPositionController extends Controller
                 '2' => [
                     'link' => config('globalVariables.link.stable'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newStable/',
+                    'route'=>'/createStable/',
                     'name'=>'Stajnia',
                     'description'=>'Konie to dodatkowa pomoc w pracy populacji. Wydajność jednego zwierzęcia to dwukrotność wydajności człowieka w pracy. Każdy kolejny poziom stajni zwiększa maksymalną liczbe koni.
                     Współczynnik przyrostu liczby koni zależy od jedzenia w mieście oraz aktualnej liczby koni.',
@@ -47,7 +45,7 @@ class BoardPositionController extends Controller
                 '3' => [
                     'link' => config('globalVariables.link.university'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newUniversity/',
+                    'route'=>'/createUniversity/',
                     'name'=>'Akademia',
                     'description'=>'W akademii odybwają się badania naukowe, dzięki którym możesz badać nowe budynki. Można rekrutować naukowców spośród wolnej populacji.
                   Każdy naukowiec zdobywa dla miasta 10 punktów technoligii na godzine.
@@ -60,7 +58,7 @@ class BoardPositionController extends Controller
                 '4' => [
                     'link' => config('globalVariables.link.army'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newArmy/',
+                    'route'=>'/createArmy/',
                     'name'=>'Koszary',
                     'description'=>'Koszary to miejsce w którym zarządza się wojskiem.
                         Można rekrutować żołnierzy spośród wolnej populacji (200 drewna, 100 złota/szt. domyślnie), co zwiększa szanse podczas najazdu wrogiej wioski, lub w czasie napadu na inną wioskę.
@@ -72,7 +70,7 @@ class BoardPositionController extends Controller
                 '5' => [
                     'link' => config('globalVariables.link.woodcutter'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newWoodcutter/',
+                    'route'=>'/createWoodcutter/',
                     'name'=>'Drwal',
                     'description'=>' Każdy kolejny poziom drwala zwiększa wydobycie drewna przez populacje w czasie godziny.
                       Podstawowe wydobycie miasta to +10 drewna/h .',
@@ -83,7 +81,7 @@ class BoardPositionController extends Controller
                 '6' => [
                     'link' => config('globalVariables.link.stonemason'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newStonemason/',
+                    'route'=>'/createStonemason/',
                     'name'=>'Kamieniarz',
                     'description'=>'Każdy kolejny poziom kamieniarza zwiększa wydobycie kamienia przez populacje w czasie godziny.
                       Podstawowe wydobycie miasta to +10 kamienia/h .',
@@ -94,7 +92,7 @@ class BoardPositionController extends Controller
                 '7' => [
                     'link' => config('globalVariables.link.mill'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newMill/',
+                    'route'=>'/createMill/',
                     'name'=>'Młyn',
                     'description'=>'  Każdy kolejny poziom młyna zwiększa zdobywanie jedzenia przez populacje w czasie godziny.
                       Podstawowe wydobycie miasta to +10 jedzenia/h .',
@@ -105,7 +103,7 @@ class BoardPositionController extends Controller
                 '8' => [
                     'link' => config('globalVariables.link.engineer'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newEngineer/',
+                    'route'=>'/createEngineer/',
                     'name'=>'Inżynier',
                     'description'=>' Każdy kolejny poziom inżyniera zmiejsza ilość wymaganych surowców do rekrutacji nowego żołnierza.',
                     'wood'=>10000,
@@ -115,7 +113,7 @@ class BoardPositionController extends Controller
                 '9' => [
                     'link' => config('globalVariables.link.architect'),
                     'ownedTechnology' => 'true',
-                    'route'=>'/newArchitect/',
+                    'route'=>'/createArchitect/',
                     'name'=>'Architekt',
                     'description'=>' Każdy kolejny poziom architekta zmniejsza ilość wymaganych surowców do rozbudowy budynków w mieście.',
                     'wood'=>10000,
@@ -174,71 +172,5 @@ class BoardPositionController extends Controller
             //                'link'=>'https://cdn.imageupload.workers.dev/K3qZyeBE_mur-wyciety.png',
             //                'ownedTechnology'=>'true'],
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BoardPosition  $boardPosition
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BoardPosition $boardPosition)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BoardPosition  $boardPosition
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BoardPosition $boardPosition)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BoardPosition  $boardPosition
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BoardPosition $boardPosition)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BoardPosition  $boardPosition
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BoardPosition $boardPosition)
-    {
-        //
     }
 }

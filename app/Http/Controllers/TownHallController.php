@@ -143,7 +143,7 @@ class TownHallController extends Controller
                             'agroWorkTime' => time(),
                             'freeWorkTime' => time(),
                         ]);
-                        return redirect('/RATUSZ');
+                        return redirect('/townhall');
                     } else return view('layouts.error', [
                         'cityName' => $city -> cityName,
                         'gold' => $city -> gold,

@@ -28,9 +28,12 @@ class CityController extends Controller
         $loadPositions = $this->getCityPositions($city);
 
         for($i = 1;$i <= 8;$i++){
-            $posLink[$i] = NULL;
+            $posPicture[$i] = NULL;
             $posName[$i] = NULL;
+            $posLink[$i] = NULL;
         }
+
+        $duringBuilding = config('globalVariables.link.building');
 
         foreach ($loadPositions as $loadPosition) {
             if ($loadPosition -> idTownHall !== NULL) {
@@ -38,38 +41,44 @@ class CityController extends Controller
                 $this->resourcesUpdate($townHall, $city);
 
                 $posName[$loadPosition -> position] = 'RATUSZ';
-                if($townHall -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.townHall');
-                else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                $posLink[$loadPosition -> position] = '/townhall';
+                if($townHall -> buildEnd === NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.townHall');
+                else $posPicture[$loadPosition -> position] = $duringBuilding;
             }
             if ($loadPosition->idStore !== NULL) {
                 $posName[$loadPosition->position] = 'MAGAZYN';
+                $posLink[$loadPosition -> position] = '/store';
                 $store=Store::where('id',$loadPosition->idStore) -> first();
-                if($store->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.store');
-                else $posLink[$loadPosition->position] = config('globalVariables.link.building');
+                if($store->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.store');
+                else $posPicture[$loadPosition->position] = $duringBuilding;
             }
             if ($loadPosition->idWall !== NULL) {
                 $posName[$loadPosition->position] = 'MUR';
+                $posLink[$loadPosition -> position] = '/wall';
                 $wall=Wall::where('id',$loadPosition->idWall) -> first();
-                if($wall -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.wall');
-                else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                if($wall -> buildEnd === NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.wall');
+                else $posPicture[$loadPosition -> position] = $duringBuilding;
             }
             if ($loadPosition->idStable !== NULL) {
                 $posName[$loadPosition->position]='STAJNIA';
+                $posLink[$loadPosition -> position]='/stable';
                 $stable = Stable::where('id',$loadPosition->idStable)->first();
-                if($stable -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.stable');
-                else $posLink[$loadPosition->position] = config('globalVariables.link.building');
+                if($stable -> buildEnd === NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.stable');
+                else $posPicture[$loadPosition->position] = $duringBuilding;
             }
             if ($loadPosition->idArmy !== NULL) {
                 $posName[$loadPosition->position] = 'KOSZARY';
+                $posLink[$loadPosition -> position] = 'army';
                 $army = Army::where('id',$loadPosition->idArmy) -> first();
-                if($army -> buildEnd === NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.army');
-                else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                if($army -> buildEnd === NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.army');
+                else $posPicture[$loadPosition -> position] = $duringBuilding;
             }
             if ($loadPosition->idUniversity !== NULL) {
                 $posName[$loadPosition -> position] = 'AKADEMIA';
+                $posLink[$loadPosition -> position] = '/university';
                 $un = University::where('id',$loadPosition -> idUniversity) -> first();
-                if($un -> buildEnd===NULL) $posLink[$loadPosition -> position] = config('globalVariables.link.university');
-                else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                if($un -> buildEnd===NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.university');
+                else $posPicture[$loadPosition -> position] = $duringBuilding;
             }
             if ($loadPosition -> idBonusBuilding !== NULL) {
                 $build = BonusBuilding::where('id',$loadPosition -> idBonusBuilding) -> first();
@@ -80,33 +89,56 @@ class CityController extends Controller
                 switch ($buildsNames -> name) {
                     case 'DRWAL':
                         {
-                            if ($build->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.woodcutter');
-                            else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                            if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.woodcutter');
+                            else {
+                                $posPicture[$loadPosition->position] = $duringBuilding;
+                                $posLink[$loadPosition -> position] = '/woodcutter';
+                            }
                         }break;
                     case 'KAMIENIARZ':
                         {
-                            if ($build->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.stonemason');
-                            else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                            if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.stonemason');
+                            else {
+                                $posPicture[$loadPosition->position] = $duringBuilding;
+                                $posLink[$loadPosition -> position] = '/stonemason';
+                            }
                         }break;
                     case 'MŁYN':
                         {
-                            if ($build->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.mill');
-                            else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                            if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.mill');
+                            else {
+                                $posPicture[$loadPosition->position] = $duringBuilding;
+                                $posLink[$loadPosition -> position] = '/mill';
+                            }
                         }break;
                     case 'INŻYNIER':
                         {
-                            if ($build->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.engineer');
-                            else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                            if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.engineer');
+                            else {
+                                $posPicture[$loadPosition->position] = $duringBuilding;
+                                $posLink[$loadPosition -> position] = '/engineer';
+                            }
                         }break;
                     case 'ARCHITEKT':
                         {
-                            if ($build->buildEnd === NULL) $posLink[$loadPosition->position] = config('globalVariables.link.architect');
-                            else $posLink[$loadPosition -> position] = config('globalVariables.link.building');
+                            if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.architect');
+                            else {
+                                $posPicture[$loadPosition->position] = $duringBuilding;
+                                $posLink[$loadPosition -> position] = '/architect';
+                            }
                         }break;
                 }
 
             }
         }
+        $buildingsData = [];
+        for ($i = 1; $i <= 8; $i++) {
+            $buildingsData[$i] = [
+            'buildingPicture' => $posPicture[$i],
+            'buildingName' => $posName[$i],
+            'buildingLink' => $posLink[$i],
+        ];
+    }
 
         return view('layouts.board',
             ['cityName' => $city->cityName,
@@ -116,23 +148,7 @@ class CityController extends Controller
                 'food' => $city->food,
                 'backgroundPicture' => config('globalVariables.link.background'),
                 'flagPicture' => config('globalVariables.link.flag'),
-                'buildings'=>[
-                    1=>['link'=>$posLink[1],
-                        'name'=>$posName[1]],
-                    2=>['link'=>$posLink[2],
-                        'name'=>$posName[2]],
-                    3=>['link'=>$posLink[3],
-                        'name'=>$posName[3]],
-                    4=>['link'=>$posLink[4],
-                        'name'=>$posName[4]],
-                    5=>['link'=>$posLink[5],
-                        'name'=>$posName[5]],
-                    6=>['link'=>$posLink[6],
-                        'name'=>$posName[6]],
-                    7=>['link'=>$posLink[7],
-                        'name'=>$posName[7]],
-                    8=>['link'=>$posLink[8],
-                        'name'=>$posName[8]]]
+                'buildings'=> $buildingsData
             ]);
     }
 
