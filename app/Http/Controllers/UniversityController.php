@@ -8,18 +8,15 @@ use App\Models\townHall;
 use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class UniversityController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Building view
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
-    {
-        //
-    }
     public function newUniversity($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -51,17 +48,18 @@ class UniversityController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Building view
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
+        $universityPicture = config('globalVariables.link.university');
         $city = City::where('idUser', Auth::id())->first();
         $loadPositions = BoardPosition::where('idCity', $city->id)->get();
 
@@ -100,6 +98,7 @@ class UniversityController extends Controller
                             'stoneNeed' => $university->stone,
                             'populationFree' => $townhall->populationFree,
                             'scienceRatio' => $scienceRatio,
+                            'universityPicture' => $universityPicture
                         ]);
                     }else return view('layouts.building', [
                         'cityName' => $city->cityName,
@@ -117,10 +116,9 @@ class UniversityController extends Controller
         }
     }
     /**
-     * Store a newly created resource in storage.
+     * Building view
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function store(Request $request)
     {
@@ -149,48 +147,4 @@ class UniversityController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\University  $university
-     * @return \Illuminate\Http\Response
-     */
-    public function show(University $university)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\University  $university
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(University $university)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\University  $university
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, University $university)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\University  $university
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(University $university)
-    {
-        //
-    }
 }

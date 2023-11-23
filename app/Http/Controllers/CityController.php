@@ -15,11 +15,17 @@ use App\Models\University;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\GlobalTrait;
+use Illuminate\View\View;
 
 class CityController extends Controller
 {
     use GlobalTrait;
 
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function displayBoard()
     {
         $user = Auth::id();
@@ -68,7 +74,7 @@ class CityController extends Controller
             }
             if ($loadPosition->idArmy !== NULL) {
                 $posName[$loadPosition->position] = 'KOSZARY';
-                $posLink[$loadPosition -> position] = 'army';
+                $posLink[$loadPosition -> position] = '/army';
                 $army = Army::where('id',$loadPosition->idArmy) -> first();
                 if($army -> buildEnd === NULL) $posPicture[$loadPosition -> position] = config('globalVariables.link.army');
                 else $posPicture[$loadPosition -> position] = $duringBuilding;
@@ -89,42 +95,43 @@ class CityController extends Controller
                 switch ($buildsNames -> name) {
                     case 'DRWAL':
                         {
+                            $posLink[$loadPosition -> position] = '/woodcutter';
                             if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.woodcutter');
                             else {
                                 $posPicture[$loadPosition->position] = $duringBuilding;
-                                $posLink[$loadPosition -> position] = '/woodcutter';
                             }
                         }break;
                     case 'KAMIENIARZ':
                         {
+                            $posLink[$loadPosition -> position] = '/stonemason';
                             if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.stonemason');
                             else {
                                 $posPicture[$loadPosition->position] = $duringBuilding;
-                                $posLink[$loadPosition -> position] = '/stonemason';
+
                             }
                         }break;
                     case 'MŁYN':
                         {
+                            $posLink[$loadPosition -> position] = '/mill';
                             if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.mill');
                             else {
                                 $posPicture[$loadPosition->position] = $duringBuilding;
-                                $posLink[$loadPosition -> position] = '/mill';
                             }
                         }break;
                     case 'INŻYNIER':
                         {
+                            $posLink[$loadPosition -> position] = '/engineer';
                             if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.engineer');
                             else {
                                 $posPicture[$loadPosition->position] = $duringBuilding;
-                                $posLink[$loadPosition -> position] = '/engineer';
                             }
                         }break;
                     case 'ARCHITEKT':
                         {
+                            $posLink[$loadPosition -> position] = '/architect';
                             if ($build->buildEnd === NULL) $posPicture[$loadPosition->position] = config('globalVariables.link.architect');
                             else {
                                 $posPicture[$loadPosition->position] = $duringBuilding;
-                                $posLink[$loadPosition -> position] = '/architect';
                             }
                         }break;
                 }
@@ -151,7 +158,11 @@ class CityController extends Controller
                 'buildings'=> $buildingsData
             ]);
     }
-
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function createCity(Request $request)
     {
         $request->validate(

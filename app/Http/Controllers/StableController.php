@@ -8,10 +8,16 @@ use App\Models\Stable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\GlobalTrait;
+use Illuminate\View\View;
 
 class StableController extends Controller
 {
     use GlobalTrait;
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newStable($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -49,9 +55,9 @@ class StableController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Building view
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function displayStable()
     {
@@ -131,59 +137,4 @@ class StableController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Stable  $stable
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Stable $stable)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Stable  $stable
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Stable $stable)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Stable  $stable
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Stable $stable)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Stable  $stable
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Stable $stable)
-    {
-        //
-    }
 }

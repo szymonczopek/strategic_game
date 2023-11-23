@@ -10,11 +10,17 @@ use App\Models\townHall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\GlobalTrait;
+use Illuminate\View\View;
 
 class TownHallController extends Controller
 {
     use GlobalTrait;
 
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function displayTownhall()
     {
         $townHallPicture = config('globalVariables.link.townHall');
@@ -106,6 +112,11 @@ class TownHallController extends Controller
     }
 
 
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function changeWorkersAmount(Request $request)
     {
         $city = $this -> getCity(Auth::id());

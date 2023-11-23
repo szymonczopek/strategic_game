@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\townHall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class ArmyController extends Controller
 {
@@ -43,10 +44,14 @@ class ArmyController extends Controller
             'wood' => $city->wood,
             'stone' => $city->stone,
             'food' => $city->food,
-            'errorInfo'=>'Brak wymaganych surowców.'
+            'messege'=>'Brak wymaganych surowców.'
         ]);
     }
-
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function displayArmy()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -111,7 +116,7 @@ class ArmyController extends Controller
                     'wood' => $city->wood,
                     'stone' => $city->stone,
                     'food' => $city->food,
-                    'errorInfo'=>'Brak armii.'
+                    'messege'=>'Brak armii.'
                 ]);
             }
         }
@@ -163,7 +168,7 @@ class ArmyController extends Controller
                     'wood' => $city->wood,
                     'stone' => $city->stone,
                     'food' => $city->food,
-                    'errorInfo'=>'Brak wymaganych surowców lub niedostateczna ilość wolnej populacji.'
+                    'messege'=>'Brak wymaganych surowców lub niedostateczna ilość wolnej populacji.'
                 ]);
             }
         }

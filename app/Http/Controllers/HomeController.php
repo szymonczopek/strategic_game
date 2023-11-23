@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Traits\GlobalTrait;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,10 @@ class HomeController extends Controller
         else return view('nameCity');
 
     }
+    /**
+     *
+     * @return View
+     */
     public function changePassword(Request $request)
     {
         $request->validate([
@@ -51,6 +56,11 @@ class HomeController extends Controller
             'messege' => 'Hasło zostało zmienione.'
         ]);
     }
+    /**
+     * Change password view
+     *
+     * @return View
+     */
     public function create(){
         return view('changePassword');
     }

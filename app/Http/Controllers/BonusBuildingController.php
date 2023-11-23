@@ -8,10 +8,15 @@ use App\Models\City;
 use App\Models\townHall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class BonusBuildingController extends Controller
 {
-
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newWoodcutter($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -53,6 +58,11 @@ class BonusBuildingController extends Controller
             'messege'=>'Brak wymaganych surowców.'
         ]);
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function woodcutter()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -102,6 +112,11 @@ class BonusBuildingController extends Controller
            ]);
                 } else dd("brak budynku");
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newStonemason($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -144,6 +159,11 @@ class BonusBuildingController extends Controller
         ]);
     }
 
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function stonemason()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -195,6 +215,11 @@ class BonusBuildingController extends Controller
             ]);
         } else dd("brak budynku");
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newMill($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -236,6 +261,11 @@ class BonusBuildingController extends Controller
             'messege'=>'Brak wymaganych surowców.'
         ]);
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function mill()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -286,6 +316,11 @@ class BonusBuildingController extends Controller
             ]);
         } else dd("brak budynku");
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newEngineer($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -320,6 +355,11 @@ class BonusBuildingController extends Controller
             'messege'=>'Brak wymaganych surowców.'
         ]);
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function engineer()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -370,6 +410,11 @@ class BonusBuildingController extends Controller
             ]);
         } else dd("brak budynku");
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newArchitect($slug)
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -404,6 +449,11 @@ class BonusBuildingController extends Controller
             'messege'=>'Brak wymaganych surowców.'
         ]);
     }
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function architect()
     {
         $city = City::where('idUser', Auth::id())->first();
@@ -454,59 +504,5 @@ class BonusBuildingController extends Controller
             ]);
         } else dd("brak budynku");
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BonusBuilding  $bonusBuilding
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BonusBuilding $bonusBuilding)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BonusBuilding  $bonusBuilding
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BonusBuilding $bonusBuilding)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BonusBuilding  $bonusBuilding
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BonusBuilding $bonusBuilding)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BonusBuilding  $bonusBuilding
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BonusBuilding $bonusBuilding)
-    {
-        //
-    }
 }

@@ -1,11 +1,14 @@
 # Strategic browser game</br>
 
-Real - time strategy browser game. The gameplay is about managing a medieval city. The player acquires materials from which he builds buildings. Each building has a specific function in the city. In-game events take place in real time.
+Real - time strategy browser game. The gameplay is about managing a medieval city. The player acquires materials from which he builds buildings. Each building has a specific function in the city. In-game events take place in real time.</br>
 
-<img  src="https://imageupload.io/ib/qjuHbjDSOUhwz3t_1685779478.png" alt="Strategic browser game photo"/>
-<img  src="https://imageupload.io/ib/YLikknbEtSOJ75Y_1685618458.png" alt="Strategic browser game photo"/>
-<img  src="https://imageupload.io/ib/9LLqbrfba80Bqda_1685619106.png" alt="Strategic browser game photo"/>
-<img  src="https://imageupload.io/ib/Mk0N5InEIxIvTM9_1685780607.png" alt="Strategic browser game photo"/>
+<img  src="https://i.postimg.cc/4dkhJQqB/zdj1.png" alt="Strategic browser game photo"/></br></br></br>
+<img  src="https://i.postimg.cc/T2cW6m9J/zdj2.png" alt="Strategic browser game photo"/></br></br></br>
+<img  src="https://i.postimg.cc/bNWnCPg7/zdj01.png" alt="Buildings list"/>
+<img  src="https://i.postimg.cc/DwGXRNY8/zjd02.png" alt="Buildings list"/>
+<img  src="https://i.postimg.cc/vmdVyvpX/zdj03.png" alt="Buildings list"/></br></br></br>
+<img  src="https://i.postimg.cc/RF7Jqnz9/zdj5.png" alt="Strategic browser game photo"/></br></br></br>
+<img  src="https://i.postimg.cc/brqDnNzn/zdj6.png" alt="Strategic browser game photo"/></br></br></br>
 
 ## To run this program:</br>
 

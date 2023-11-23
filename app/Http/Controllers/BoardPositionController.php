@@ -8,11 +8,16 @@ use App\Models\BonusBuildingName;
 use App\Models\City;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\GlobalTrait;
+use Illuminate\View\View;
 
 class BoardPositionController extends Controller
 {
     use GlobalTrait;
-
+    /**
+     * Building view
+     *
+     * @return View
+     */
     public function newBuild($slug)
     {
         if($slug > 1 && $slug <= 7){
