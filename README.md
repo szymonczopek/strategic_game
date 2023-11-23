@@ -4,6 +4,7 @@ Real - time strategy browser game. The gameplay is about managing a medieval cit
 
 <img  src="https://i.postimg.cc/4dkhJQqB/zdj1.png" alt="Strategic browser game photo"/></br></br></br>
 <img  src="https://i.postimg.cc/T2cW6m9J/zdj2.png" alt="Strategic browser game photo"/></br></br></br>
+<img  src="https://i.postimg.cc/ZqTg5nDN/adj3.png" alt="Strategic browser game photo"/></br></br></br>
 <img  src="https://i.postimg.cc/bNWnCPg7/zdj01.png" alt="Buildings list"/>
 <img  src="https://i.postimg.cc/DwGXRNY8/zjd02.png" alt="Buildings list"/>
 <img  src="https://i.postimg.cc/vmdVyvpX/zdj03.png" alt="Buildings list"/></br></br></br>
